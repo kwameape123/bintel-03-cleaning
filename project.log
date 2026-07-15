@@ -641,3 +641,144 @@ dtype: int64
 2026-07-15 16:26:48 | INFO | BI | ==================================
 2026-07-15 16:26:48 | INFO | BI | FINISHED prep_customers_day.py
 2026-07-15 16:26:48 | INFO | BI | ==================================
+2026-07-15 16:41:26 | INFO | BI | Ensured that the directory D:\Repos\bintel-03-cleaning\data\processed exists.
+2026-07-15 16:41:26 | INFO | BI | Ensured that the directory D:\Repos\bintel-03-cleaning\data\raw exists.
+2026-07-15 16:41:26 | INFO | BI | ==================================
+2026-07-15 16:41:26 | INFO | BI | STARTING prep_customers_day.py
+2026-07-15 16:41:26 | INFO | BI | ==================================
+2026-07-15 16:41:26 | INFO | BI | Attempting to read the raw data from D:\Repos\bintel-03-cleaning\data\raw\customers_data.csv.
+2026-07-15 16:41:26 | INFO | BI | Successfully read the raw data from D:\Repos\bintel-03-cleaning\data\raw\customers_data.csv.
+2026-07-15 16:41:26 | INFO | BI | Initial dataframe columns: CustomerID, Name, Region, JoinDate, CustomerType, CustomerTenureYears
+2026-07-15 16:41:26 | INFO | BI | Initial dataframe shape: (201, 6)
+2026-07-15 16:41:26 | INFO | BI | Cleaned column names: CustomerID -> customerid, Name -> name, Region -> region, JoinDate -> joindate, CustomerType -> customertype, CustomerTenureYears -> customertenureyears
+2026-07-15 16:41:26 | INFO | BI | Identifying and deleting duplicate rows.
+2026-07-15 16:41:26 | INFO | BI | Found 1 duplicate rows.
+2026-07-15 16:41:26 | INFO | BI | Initial DataFrame shape: (201, 6)
+2026-07-15 16:41:26 | INFO | BI | Final DataFrame shape after handling duplicates: (200, 6)
+2026-07-15 16:41:26 | INFO | BI | Identifying and deleting rows with missing values.
+2026-07-15 16:41:26 | INFO | BI | Missing values are less than 5% of total rows. Dropping rows with missing values.
+2026-07-15 16:41:26 | INFO | BI | Initial DataFrame shape: (200, 6)
+2026-07-15 16:41:26 | INFO | BI | Missing values per column:
+customerid             0
+name                   0
+region                 0
+joindate               0
+customertype           0
+customertenureyears    0
+dtype: int64
+2026-07-15 16:41:26 | INFO | BI | Final DataFrame shape after handling missing values: (200, 6)
+2026-07-15 16:41:26 | INFO | BI | Identifying and handling outliers in the data.
+2026-07-15 16:41:26 | INFO | BI | Found 0 outliers in column 'customerid'.
+2026-07-15 16:41:26 | INFO | BI | Found 0 outliers in column 'customertenureyears'.
+2026-07-15 16:41:26 | INFO | BI | Initial DataFrame shape: (200, 6)
+2026-07-15 16:41:26 | INFO | BI | Final DataFrame shape after handling outliers: (200, 6)
+2026-07-15 16:41:26 | INFO | BI | Ensuring that certain columns are formatted correctly
+2026-07-15 16:41:26 | INFO | BI | Split 'Name' column into 'FirstName' and 'LastName'.
+2026-07-15 16:41:26 | INFO | BI | FUNCTION START: save_prepared_data with file_name=customers_data_prepared.csv, dataframe shape=(200, 7)
+2026-07-15 16:41:26 | INFO | BI | Data saved to D:\Repos\bintel-03-cleaning\data\processed\customers_data_prepared.csv
+2026-07-15 16:41:26 | INFO | BI | ==================================
+2026-07-15 16:41:26 | INFO | BI | Original shape: (201, 6)
+2026-07-15 16:41:26 | INFO | BI | Cleaned shape:  (200, 7)
+2026-07-15 16:41:26 | INFO | BI | ==================================
+2026-07-15 16:41:26 | INFO | BI | FINISHED prep_customers_day.py
+2026-07-15 16:41:26 | INFO | BI | ==================================
+2026-07-15 16:41:39 | INFO | BI | Ensured that the directory D:\Repos\bintel-03-cleaning\data\processed exists.
+2026-07-15 16:41:39 | INFO | BI | Ensured that the directory D:\Repos\bintel-03-cleaning\data\raw exists.
+2026-07-15 16:41:39 | INFO | BI | ==================================
+2026-07-15 16:41:39 | INFO | BI | STARTING prep_products_day.py
+2026-07-15 16:41:39 | INFO | BI | ==================================
+2026-07-15 16:41:39 | INFO | BI | Attempting to read the raw data from D:\Repos\bintel-03-cleaning\data\raw\products_data.csv.
+2026-07-15 16:41:39 | INFO | BI | Successfully read the raw data from D:\Repos\bintel-03-cleaning\data\raw\products_data.csv.
+2026-07-15 16:41:39 | INFO | BI | Initial dataframe columns: ProductID, ProductName, Category, UnitPrice($), AverageQualityRating, QualityRating, UnitCost($)
+2026-07-15 16:41:39 | INFO | BI | Initial dataframe shape: (100, 7)
+2026-07-15 16:41:39 | INFO | BI | Cleaned column names: ProductID -> productid, ProductName -> productname, Category -> category, UnitPrice($) -> unitprice($), AverageQualityRating -> averagequalityrating, QualityRating -> qualityrating, UnitCost($) -> unitcost($)
+2026-07-15 16:41:39 | INFO | BI | Identifying and deleting duplicate rows.
+2026-07-15 16:41:39 | INFO | BI | Found 0 duplicate rows.
+2026-07-15 16:41:39 | INFO | BI | Initial DataFrame shape: (100, 7)
+2026-07-15 16:41:39 | INFO | BI | Final DataFrame shape after handling duplicates: (100, 7)
+2026-07-15 16:41:39 | INFO | BI | Identifying and deleting rows with missing values.
+2026-07-15 16:41:39 | INFO | BI | Missing values are less than 5% of total rows. Dropping rows with missing values.
+2026-07-15 16:41:39 | INFO | BI | Initial DataFrame shape: (100, 7)
+2026-07-15 16:41:39 | INFO | BI | Missing values per column:
+productid               0
+productname             0
+category                0
+unitprice($)            0
+averagequalityrating    0
+qualityrating           0
+unitcost($)             0
+dtype: int64
+2026-07-15 16:41:39 | INFO | BI | Final DataFrame shape after handling missing values: (100, 7)
+2026-07-15 16:41:39 | INFO | BI | Identifying and handling outliers in the data.
+2026-07-15 16:41:39 | INFO | BI | Found 0 outliers in column 'productid'.
+2026-07-15 16:41:39 | INFO | BI | Found 0 outliers in column 'unitprice($)'.
+2026-07-15 16:41:39 | INFO | BI | Found 0 outliers in column 'averagequalityrating'.
+2026-07-15 16:41:39 | INFO | BI | Found 1 outliers in column 'unitcost($)'.
+2026-07-15 16:41:39 | INFO | BI | Initial DataFrame shape: (100, 7)
+2026-07-15 16:41:39 | INFO | BI | Final DataFrame shape after handling outliers: (99, 7)
+2026-07-15 16:41:39 | INFO | BI | Ensuring that certain columns are formatted correctly
+2026-07-15 16:41:39 | INFO | BI | Split 'productname' column into 'categoryduplicate' and 'name'.
+2026-07-15 16:41:39 | INFO | BI | FUNCTION START: save_prepared_data with file_name=products_data_prepared.csv, dataframe shape=(99, 7)
+2026-07-15 16:41:39 | INFO | BI | Data saved to D:\Repos\bintel-03-cleaning\data\processed\products_data_prepared.csv
+2026-07-15 16:41:39 | INFO | BI | ==================================
+2026-07-15 16:41:39 | INFO | BI | Original shape: (100, 7)
+2026-07-15 16:41:39 | INFO | BI | Cleaned shape:  (99, 7)
+2026-07-15 16:41:39 | INFO | BI | ==================================
+2026-07-15 16:41:39 | INFO | BI | FINISHED prep_customers_day.py
+2026-07-15 16:41:39 | INFO | BI | ==================================
+2026-07-15 16:41:45 | INFO | BI | Ensured that the directory D:\Repos\bintel-03-cleaning\data\processed exists.
+2026-07-15 16:41:45 | INFO | BI | Ensured that the directory D:\Repos\bintel-03-cleaning\data\raw exists.
+2026-07-15 16:41:45 | INFO | BI | ==================================
+2026-07-15 16:41:45 | INFO | BI | STARTING prep_customers_day.py
+2026-07-15 16:41:45 | INFO | BI | ==================================
+2026-07-15 16:41:45 | INFO | BI | Attempting to read the raw data from D:\Repos\bintel-03-cleaning\data\raw\sales_data.csv.
+2026-07-15 16:41:45 | INFO | BI | Successfully read the raw data from D:\Repos\bintel-03-cleaning\data\raw\sales_data.csv.
+2026-07-15 16:41:45 | INFO | BI | Initial dataframe columns: TransactionID, SaleDate, CustomerID, ProductID, StoreID, CampaignID, SaleAmount($), SalesCampaignType, TransactionTimeMinutes
+2026-07-15 16:41:45 | INFO | BI | Initial dataframe shape: (2400, 9)
+2026-07-15 16:41:45 | INFO | BI | Cleaned column names: TransactionID -> transactionid, SaleDate -> saledate, CustomerID -> customerid, ProductID -> productid, StoreID -> storeid, CampaignID -> campaignid, SaleAmount($) -> saleamount($), SalesCampaignType -> salescampaigntype, TransactionTimeMinutes -> transactiontimeminutes
+2026-07-15 16:41:45 | INFO | BI | Identifying and deleting duplicate rows.
+2026-07-15 16:41:45 | INFO | BI | Found 0 duplicate rows.
+2026-07-15 16:41:45 | INFO | BI | Initial DataFrame shape: (2400, 9)
+2026-07-15 16:41:45 | INFO | BI | Final DataFrame shape after handling duplicates: (2400, 9)
+2026-07-15 16:41:45 | INFO | BI | Identifying and deleting rows with missing values.
+2026-07-15 16:41:45 | INFO | BI | Missing values are more than 5% of total rows. Imputing missing values.
+2026-07-15 16:41:45 | INFO | BI | Imputed missing values in numeric column 'transactionid' with mean value 1200.5.
+2026-07-15 16:41:45 | INFO | BI | Imputed missing values in categorical column 'saledate' with mode value '11/2/2024'.
+2026-07-15 16:41:45 | INFO | BI | Imputed missing values in numeric column 'customerid' with mean value 1086.75125.
+2026-07-15 16:41:45 | INFO | BI | Imputed missing values in numeric column 'productid' with mean value 2049.06875.
+2026-07-15 16:41:45 | INFO | BI | Imputed missing values in numeric column 'storeid' with mean value 402.53041666666667.
+2026-07-15 16:41:45 | INFO | BI | Imputed missing values in numeric column 'campaignid' with mean value 1.464884458541006.
+2026-07-15 16:41:45 | INFO | BI | Imputed missing values in categorical column 'saleamount($)' with mode value '0'.
+2026-07-15 16:41:45 | INFO | BI | Imputed missing values in categorical column 'salescampaigntype' with mode value 'Clearance'.
+2026-07-15 16:41:45 | INFO | BI | Imputed missing values in numeric column 'transactiontimeminutes' with mean value 16.21625.
+2026-07-15 16:41:45 | INFO | BI | Initial DataFrame shape: (2400, 9)
+2026-07-15 16:41:45 | INFO | BI | Missing values per column:
+transactionid               0
+saledate                    0
+customerid                  0
+productid                   0
+storeid                     0
+campaignid                193
+saleamount($)               0
+salescampaigntype           0
+transactiontimeminutes      0
+dtype: int64
+2026-07-15 16:41:45 | INFO | BI | Final DataFrame shape after handling missing values: (2400, 9)
+2026-07-15 16:41:45 | INFO | BI | Identifying and handling outliers in the data.
+2026-07-15 16:41:45 | INFO | BI | Found 0 outliers in column 'transactionid'.
+2026-07-15 16:41:45 | INFO | BI | Found 0 outliers in column 'customerid'.
+2026-07-15 16:41:45 | INFO | BI | Found 0 outliers in column 'productid'.
+2026-07-15 16:41:45 | INFO | BI | Found 0 outliers in column 'storeid'.
+2026-07-15 16:41:45 | INFO | BI | Found 0 outliers in column 'campaignid'.
+2026-07-15 16:41:45 | INFO | BI | Found 0 outliers in column 'transactiontimeminutes'.
+2026-07-15 16:41:45 | INFO | BI | Initial DataFrame shape: (2400, 9)
+2026-07-15 16:41:45 | INFO | BI | Final DataFrame shape after handling outliers: (2207, 9)
+2026-07-15 16:41:45 | INFO | BI | Ensuring that certain columns are formatted correctly
+2026-07-15 16:41:45 | INFO | BI | FUNCTION START: save_prepared_data with file_name=sales_data_prepared.csv, dataframe shape=(2207, 9)
+2026-07-15 16:41:45 | INFO | BI | Data saved to D:\Repos\bintel-03-cleaning\data\processed\sales_data_prepared.csv
+2026-07-15 16:41:45 | INFO | BI | ==================================
+2026-07-15 16:41:45 | INFO | BI | Original shape: (2400, 9)
+2026-07-15 16:41:45 | INFO | BI | Cleaned shape:  (2207, 9)
+2026-07-15 16:41:45 | INFO | BI | ==================================
+2026-07-15 16:41:45 | INFO | BI | FINISHED prep_customers_day.py
+2026-07-15 16:41:45 | INFO | BI | ==================================

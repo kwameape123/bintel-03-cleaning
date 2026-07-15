@@ -215,7 +215,7 @@ def main() -> None:
     LOG.info("==================================")
 
     input_file = "products_data.csv"
-    output_file = "products_prepared.csv"
+    output_file = "products_data_prepared.csv"
 
     df = fetch_raw_data(input_file)
 
