@@ -600,3 +600,44 @@ dtype: int64
 2026-07-15 15:36:09 | INFO | BI | ==================================
 2026-07-15 15:36:09 | INFO | BI | FINISHED prep_customers_day.py
 2026-07-15 15:36:09 | INFO | BI | ==================================
+2026-07-15 16:26:48 | INFO | BI | Ensured that the directory D:\Repos\bintel-03-cleaning\data\processed exists.
+2026-07-15 16:26:48 | INFO | BI | Ensured that the directory D:\Repos\bintel-03-cleaning\data\raw exists.
+2026-07-15 16:26:48 | INFO | BI | ==================================
+2026-07-15 16:26:48 | INFO | BI | STARTING prep_customers_day.py
+2026-07-15 16:26:48 | INFO | BI | ==================================
+2026-07-15 16:26:48 | INFO | BI | Attempting to read the raw data from D:\Repos\bintel-03-cleaning\data\raw\customers_data.csv.
+2026-07-15 16:26:48 | INFO | BI | Successfully read the raw data from D:\Repos\bintel-03-cleaning\data\raw\customers_data.csv.
+2026-07-15 16:26:48 | INFO | BI | Initial dataframe columns: CustomerID, Name, Region, JoinDate, CustomerType, CustomerTenureYears
+2026-07-15 16:26:48 | INFO | BI | Initial dataframe shape: (201, 6)
+2026-07-15 16:26:48 | INFO | BI | Cleaned column names: CustomerID -> customerid, Name -> name, Region -> region, JoinDate -> joindate, CustomerType -> customertype, CustomerTenureYears -> customertenureyears
+2026-07-15 16:26:48 | INFO | BI | Identifying and deleting duplicate rows.
+2026-07-15 16:26:48 | INFO | BI | Found 1 duplicate rows.
+2026-07-15 16:26:48 | INFO | BI | Initial DataFrame shape: (201, 6)
+2026-07-15 16:26:48 | INFO | BI | Final DataFrame shape after handling duplicates: (200, 6)
+2026-07-15 16:26:48 | INFO | BI | Identifying and deleting rows with missing values.
+2026-07-15 16:26:48 | INFO | BI | Missing values are less than 5% of total rows. Dropping rows with missing values.
+2026-07-15 16:26:48 | INFO | BI | Initial DataFrame shape: (200, 6)
+2026-07-15 16:26:48 | INFO | BI | Missing values per column:
+customerid             0
+name                   0
+region                 0
+joindate               0
+customertype           0
+customertenureyears    0
+dtype: int64
+2026-07-15 16:26:48 | INFO | BI | Final DataFrame shape after handling missing values: (200, 6)
+2026-07-15 16:26:48 | INFO | BI | Identifying and handling outliers in the data.
+2026-07-15 16:26:48 | INFO | BI | Found 0 outliers in column 'customerid'.
+2026-07-15 16:26:48 | INFO | BI | Found 0 outliers in column 'customertenureyears'.
+2026-07-15 16:26:48 | INFO | BI | Initial DataFrame shape: (200, 6)
+2026-07-15 16:26:48 | INFO | BI | Final DataFrame shape after handling outliers: (200, 6)
+2026-07-15 16:26:48 | INFO | BI | Ensuring that certain columns are formatted correctly
+2026-07-15 16:26:48 | INFO | BI | Split 'Name' column into 'FirstName' and 'LastName'.
+2026-07-15 16:26:48 | INFO | BI | FUNCTION START: save_prepared_data with file_name=customers_prepared.csv, dataframe shape=(200, 7)
+2026-07-15 16:26:48 | INFO | BI | Data saved to D:\Repos\bintel-03-cleaning\data\processed\customers_prepared.csv
+2026-07-15 16:26:48 | INFO | BI | ==================================
+2026-07-15 16:26:48 | INFO | BI | Original shape: (201, 6)
+2026-07-15 16:26:48 | INFO | BI | Cleaned shape:  (200, 7)
+2026-07-15 16:26:48 | INFO | BI | ==================================
+2026-07-15 16:26:48 | INFO | BI | FINISHED prep_customers_day.py
+2026-07-15 16:26:48 | INFO | BI | ==================================

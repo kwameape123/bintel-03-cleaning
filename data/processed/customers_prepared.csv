@@ -1,4 +1,4 @@
-customerid,region,joindate,customertype,customertenureyears,firstName,lastName
+customerid,region,joindate,customertype,customertenureyears,firstname,lastname
 1000,west,2/25/2024,introductory,1,robert,gomez
 1001,east,12/1/2020,loyal,5,john,silva
 1002,central,8/8/2020,loyal,5,mark,marshall

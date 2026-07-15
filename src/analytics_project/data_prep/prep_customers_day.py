@@ -181,8 +181,8 @@ def standardize_data(df: pd.DataFrame) -> pd.DataFrame:
     LOG.info("Ensuring that certain columns are formatted correctly")
     if "name" in df.columns:
         name_parts = df["name"].astype(str).str.split(" ", n=1, expand=True)
-        df["firstName"] = name_parts[0]
-        df["lastName"] = name_parts[1].fillna("")
+        df["firstname"] = name_parts[0]
+        df["lastname"] = name_parts[1].fillna("")
         LOG.info("Split 'Name' column into 'FirstName' and 'LastName'.")
         df = df.drop(columns=["name"])
     if "joinDate" in df.columns:
