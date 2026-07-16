@@ -20,9 +20,12 @@ authors:
     given-names: Denise M.
     orcid: "https://orcid.org/0000-0001-6165-7389"
     affiliation: "Northwest Missouri State University, School of Computer Science and Information Systems, Maryville, MO, USA"
+  - family-names: Atchoe
+    given-names: Arnold K.
+    affiliation: "Northwest Missouri State University, School of Computer Science and Information Systems, Maryville, MO, USA"
 
-repository-code: "https://github.com/denisecase/bintel-03-cleaning"
-url: "https://github.com/denisecase/bintel-03-cleaning"
+repository-code: "https://github.com/kwameape123/bintel-03-cleaning"
+url: "https://github.com/kwameape123/bintel-03-cleaning"
 license: MIT
 
 abstract: >
