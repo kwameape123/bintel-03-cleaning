@@ -77,9 +77,9 @@ DATA_RAW: Final[Path] = Path("data/raw")
 DATA_PREPARED: Final[Path] = Path("data/prepared")
 
 # Input files.
-CUSTOMERS_FILE: Final[Path] = DATA_RAW / "customers_data.csv"
-PRODUCTS_FILE: Final[Path] = DATA_RAW / "products_data.csv"
-SALES_FILE: Final[Path] = DATA_RAW / "sales_data.csv"
+CUSTOMERS_FILE: Final[Path] = DATA_RAW / "customers_data_orig.csv"
+PRODUCTS_FILE: Final[Path] = DATA_RAW / "products_data_orig.csv"
+SALES_FILE: Final[Path] = DATA_RAW / "sales_data_orig.csv"
 
 # Output files.
 CUSTOMERS_PREPARED: Final[Path] = DATA_PREPARED / "customers_data_prepared.csv"
