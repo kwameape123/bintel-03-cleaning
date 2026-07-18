@@ -17,7 +17,7 @@ CustomerID,Name,Region,JoinDate
 1015,Jennifer Rodgers,North,2023-02-12
 1016,Andrea Roberts,East,2021-05-16
 1017,Brittney Burnett,North,2020-07-03
-1018,Edwin Garrison,South-West,2020-08-31
+1018,Edwin Garrison,South,2020-08-31
 1019,Michelle Torres,Central,2020-11-18
 1020,Michelle Brewer,East,2021-07-14
 1021,Aaron Burnett,South,2024-02-13
@@ -35,7 +35,7 @@ CustomerID,Name,Region,JoinDate
 1033,Paul Perkins,East,2022-03-16
 1034,Heather Smith,Central,2022-09-16
 1035,Lorraine Rodriguez,East,2022-09-26
-1036,Robert Bishop,South-West,2020-09-14
+1036,Robert Bishop,South,2020-09-14
 1037,Lisa Sanders,West,2020-06-03
 1038,Jason Ford,East,2023-10-09
 1039,Brandy Good,West,2023-05-21
@@ -51,7 +51,7 @@ CustomerID,Name,Region,JoinDate
 1049,Rebecca Jordan,West,2022-10-08
 1050,Jeffrey Mclaughlin,East,2022-03-28
 1051,Amy Nguyen,Central,2024-02-13
-1052,Brandon Hinton,South-West,2022-11-10
+1052,Brandon Hinton,South,2022-11-10
 1053,Benjamin Cline,East,2022-01-25
 1054,Laura Mcdonald,South,2022-12-03
 1055,William Benitez,East,2020-11-04
@@ -62,7 +62,7 @@ CustomerID,Name,Region,JoinDate
 1060,Mr. Christopher Thompson,South,2023-04-10
 1061,Taylor Kaufman,North,2021-07-23
 1062,Ashley Harmon,South,2024-02-13
-1063,Howard Case,South-West,2021-02-15
+1063,Howard Case,South,2021-02-15
 1064,Joshua Cline,East,2024-02-19
 1065,Daniel Adams,Central,2023-07-02
 1066,Derrick Myers,North,2022-04-06
@@ -77,9 +77,9 @@ CustomerID,Name,Region,JoinDate
 1075,Joseph Chavez,North,2023-01-01
 1076,Glenn Shelton,East,2024-05-01
 1077,Amy Espinoza,North,2021-05-29
-1078,Danielle Fuller,South-West,2023-12-08
+1078,Danielle Fuller,South,2023-12-08
 1079,Zachary Thompson MD,East,2022-09-05
-1080,Thomas Parker,South-West,2023-02-28
+1080,Thomas Parker,South,2023-02-28
 1081,Ryan White,South,2020-09-04
 1082,Connor Martin,Central,2023-01-05
 1083,Jacqueline Bishop,South,2020-06-05
@@ -90,7 +90,7 @@ CustomerID,Name,Region,JoinDate
 1088,Lindsay Torres,East,2021-12-30
 1089,Matthew Hernandez,North,2023-04-12
 1090,Nicholas Dunlap,South,2020-10-11
-1091,Brianna Thomas,South-West,2023-05-23
+1091,Brianna Thomas,South,2023-05-23
 1092,Timothy Hill,West,2023-09-07
 1093,Christian Medina,East,2023-02-04
 1094,Robert Jones,West,2023-11-18
@@ -100,7 +100,7 @@ CustomerID,Name,Region,JoinDate
 1098,Jeffrey Maxwell,West,2022-01-27
 1099,Lori Howard,East,2021-02-27
 1100,Michael Simon,East,2020-12-27
-1101,Ryan Martin,South-West,2020-11-14
+1101,Ryan Martin,South,2020-11-14
 1102,Robert Hansen,Central,2022-11-19
 1103,Megan Chandler,East,2023-06-25
 1104,David Herrera,West,2021-04-01
@@ -110,7 +110,7 @@ CustomerID,Name,Region,JoinDate
 1108,Sharon Bautista,Central,2022-07-31
 1109,Aaron Garcia,East,2023-07-31
 1110,Melissa Grimes,South,2024-03-14
-1111,Ronald Chavez,South-West,2021-06-24
+1111,Ronald Chavez,South,2021-06-24
 1112,Joseph Flores,East,2021-04-03
 1113,Louis Jones,Central,2021-07-04
 1114,Grace Price,South,2022-03-25
@@ -122,7 +122,7 @@ CustomerID,Name,Region,JoinDate
 1120,Daniel Meyer,South,2024-03-15
 1121,Stephanie Garrison,East,2020-08-21
 1122,Christopher Martinez,East,2021-10-07
-1123,Colleen Greene,South-West,2022-08-21
+1123,Colleen Greene,South,2022-08-21
 1124,Megan Novak,East,2022-12-19
 1125,Debbie Andrews,West,2021-05-22
 1126,Lee Luna,East,2021-01-19
@@ -132,11 +132,11 @@ CustomerID,Name,Region,JoinDate
 1130,Mary Sandoval,North,2020-10-06
 1131,Mark Gomez,West,2020-06-11
 1132,Scott Winters,West,2022-09-20
-1133,Victor Wagner,South-West,2021-06-12
+1133,Victor Wagner,South,2021-06-12
 1134,Joseph Aguilar,West,2023-12-05
 1135,Christopher Chen,South,2023-09-10
 1136,Scott Hernandez,South,2024-02-09
-1137,Jessica Harmon,South-West,2022-11-05
+1137,Jessica Harmon,South,2022-11-05
 1138,Bonnie Stewart,South,2022-04-19
 1139,Heather Olson,Central,2021-04-20
 1140,Carla Flores,East,2020-09-30
@@ -145,8 +145,8 @@ CustomerID,Name,Region,JoinDate
 1143,Miss Chelsea Castro DDS,Central,2021-02-23
 1144,Brian Browning,East,2023-05-03
 1145,Stephanie Powell,East,2023-02-03
-1146,Jonathan Andrade,South-West,2020-06-07
-1147,William Palmer,South-West,2023-08-14
+1146,Jonathan Andrade,South,2020-06-07
+1147,William Palmer,South,2023-08-14
 1148,Dean Allison,West,2021-06-23
 1149,Jordan Elliott,North,2020-05-13
 1150,Bobby Hunter,North,2020-12-06
@@ -165,12 +165,12 @@ CustomerID,Name,Region,JoinDate
 1163,Elizabeth Vaughn,West,2023-05-01
 1164,William Ramsey,North,2023-05-04
 1165,Richard Burnett,Central,2022-07-24
-1166,David Mccullough,South-West,2021-12-15
+1166,David Mccullough,South,2021-12-15
 1167,Terry Frederick,North,2021-12-20
 1168,Denise Gonzales,South,2022-05-02
-1169,Michael Edwards,South-West,2023-09-26
+1169,Michael Edwards,South,2023-09-26
 1170,Eric Davis,North,2023-10-15
-1171,Ronald Marquez,South-West,2024-04-21
+1171,Ronald Marquez,South,2024-04-21
 1172,Eric Barr,East,2023-02-01
 1173,David King MD,North,2022-09-14
 1174,Deborah Saunders,West,2021-12-25
@@ -179,7 +179,7 @@ CustomerID,Name,Region,JoinDate
 1177,Katherine West,East,2020-11-01
 1178,Katherine Kerr,East,2020-11-13
 1179,Desiree Miller,East,2021-12-21
-1180,Jennifer Smith,South-West,2020-10-03
+1180,Jennifer Smith,South,2020-10-03
 1181,Tiffany Smith,East,2024-04-07
 1182,James Gray,West,2020-07-24
 1183,Kenneth Graves,East,2020-05-08
@@ -189,13 +189,13 @@ CustomerID,Name,Region,JoinDate
 1187,Kayla Solomon,North,2022-06-10
 1188,Ashley Todd,North,2023-09-04
 1189,Jennifer Farrell,North,2022-11-18
-1190,Elizabeth Robinson,South-West,2023-12-27
+1190,Elizabeth Robinson,South,2023-12-27
 1191,Kyle Smith Jr.,South,2023-10-31
 1192,Gregory Medina,East,2020-06-06
 1193,Nancy King,South,2022-05-23
 1194,Casey Brown,Central,2024-02-09
-1195,Michael Lee,South-West,2023-08-22
+1195,Michael Lee,South,2023-08-22
 1196,Dr. Elizabeth Johnston DDS,North,2022-02-09
 1197,William Wilson,West,2023-04-04
-1198,Chris Allen,South-West,2022-10-11
+1198,Chris Allen,South,2022-10-11
 1199,James Cooley,West,2020-07-23
