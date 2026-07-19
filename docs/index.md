@@ -23,61 +23,56 @@ to get the example projects running on your machine.
 
 Describe your small technical modification to the example project.
 
-Include:
+# Changes Made-
+Please refer to data_prep_arnold.py for details on changes.
 
-- What you changed
-- Why you chose that change
-- How you verified that it worked
-- What result, output, chart, metric, or behavior confirmed the change
+- On lines 132 and 133, I got rid of sub regions in the regions column like west in south-west.
+- Changed line 179 from LOG.info(f"  Customers prepared: {df.shape[0]} rows") to LOG.info(f"  Customers prepared: {after} rows").
+- On 167 and 168, made JoinDate column a datetime data-type.
+- On lines 228 to 231, I summarized information of the UnitPrice column in the products table.
+- On lines 248 to 250, I got rid of product category in the ProductName column.
+- On lines 401 to 404, I dropped the CampaignID column.
 
-Compared with the example project,
-explain what is different and why the change matters.
+# Why you chose that change
+- I got rid of sub regions because not all rows or instances had sub regions.
+- The second changes was for code consistency.
+- The third changes was to change the JoinDate to datetime datatype for easy analysis.
+- The fourth change was to identify the datatype of the UnitPrice Column of before and after datatype conversion. Information was provide on the number of missing values in the UnitPrice column.
+- I got rid of product category in the ProductName Column because there was already a column for product category.
+- I dropped the CampaingnID column because it did not link to any external table.
 
-Was it easy, or surprisingly challenging and why do you think so?
+Changes were moderate. I rated it this way because I had some challenges with dropping the CampaignID column. I did not construct that line of code right way and did not assign it back to the dataframe variable.
 
 ## Phase 5. Custom Project
-
-Describe your custom data cleaning and preparation work.
-
-### Basis and Data
-
-Describe the raw data you started with.
-
-Include:
-
-- The three smart sales data files and their known quality issues
-- Which issues you chose to address and which you deferred
-- Any important assumptions about what counts as valid data
+My Custom cleaning project made use of the dirty_cafe_sales.csv dataset.This dataset has 10,000 rows and 8 columns.This dataset was plagued with:
+- Missing Values.
+- Inconsistent datatypes in columns.
+- Inconsitent data format in columns.
+- Duplicate Values.
+- Outliers.
 
 ### Cleaning Approach
+The following steps were followed to produce a clean dataset:
+- Loaded dataset into pandas dataframe.
+- Inspect the structure and contents of the dataset.
+- Check data for quality issues.(Missing values, duplicate values, outliers and inconsistencies).
+- Summarized numerical columns if these columns are already in the right datatype.
+- Data cleaning or preparation which involved addressing all the problems identify with the dataset.
+- Check data quality once again to make sure changes were effective.
+- Summarized numerical columns for clean data.
+- Save cleaned data to a csv file.
 
-Describe the ETVL preparation steps you implemented.
+NOTE: `project.log` contains detailed information on the process.
+      `utils_data_log` contains functions and associate comments used in data cleaning.
 
-Include:
+For the cleaning and preparation step, the following changes were made:
+- Capitalized each word in the column name and got rid of any whitespace.
+- Dropped duplicate rows.
+- Converted invalid words like "error" and "unknown" into missing values.
+- Convert columns to appropriate datatype.
+-Derived missing values in "Quantity","PricePerUnit","TotalSpent" mathematically from each other. If two or more values was missing in a row for these columns, there was imputation using medians. Refer to the comments of the code for mode information.
+-Replaced missing values in categorical columns using mode.
+-Dropped rows that we were not able to resolve missing values.
 
-- What cleaning steps you applied to each table
-- What custom cleaning logic you added beyond the example
-- How you verified the data was clean before saving
-
-### Before and After
-
-Describe the impact of your cleaning work.
-
-Include:
-
-- How many rows were removed or corrected in each table
-- What the data looked like before and after (use screenshots or log output)
-- Whether any cleaning decisions were judgment calls and why you made them
-
-### Summary
-
-Summarize your custom cleaning work.
-
-Include:
-
-- What you implemented beyond the example
-- What the prepared data looks like
-- What you learned about data quality
-- What kinds of real business problems data cleaning enables
-
-Display at least one chart or screenshot showing your before and after results.
+### Conclusion
+The result was a csv file containing a dataset of 9540 rows void of any of the problems listed in the introduction.

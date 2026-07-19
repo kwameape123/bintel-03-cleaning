@@ -109,6 +109,8 @@ uv run python -m bizintel.app_case
 
 # run the example module to explore cleaning
 uv run python -m bizintel.data_prep_case
+uv run python -m bizintel.data_prep_arnold
+uv run python -m bizintel.data_prep_cafe_arnold
 
 # run common chores
 uv run ruff format .
@@ -178,6 +180,26 @@ max          2400.00     1199.00    2099.00   404.00        3.00     4993.88
 | INFO | BI | Workflow complete
 | INFO | BI | ========================
 | INFO | BI | Executed successfully!
+```
+
+```shell
+Quantity  PricePerUnit  TotalSpent
+count    9540.0        9540.0      9540.0
+mean       3.02          2.95        8.92
+std        1.42          1.28         6.0
+min         1.0           1.0         1.0
+25%         2.0           2.0         4.0
+50%         3.0           3.0         8.0
+75%         4.0           4.0        12.0
+max         8.0           5.0        25.0
+2026-07-18 19:34:20 | INFO | BI | Task 8. SAVE PREPARED DATASETS........
+2026-07-18 19:34:20 | INFO | BI | Saved cafe sales
+2026-07-18 19:34:20 | INFO | BI |   Rows: 9540
+2026-07-18 19:34:20 | INFO | BI |   Path: data\prepared\dirty_cafe_sales_data_prepared.csv
+2026-07-18 19:34:20 | INFO | BI | Workflow complete
+2026-07-18 19:34:20 | INFO | BI | ========================
+2026-07-18 19:34:20 | INFO | BI | Executed successfully!
+2026-07-18 19:34:20 | INFO | BI | ========================
 ```
 
 ## Findings and Visuals
