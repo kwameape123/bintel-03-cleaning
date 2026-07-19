@@ -1780,3 +1780,1021 @@ max          2400.00     1199.00    2099.00   404.00     4993.88
 2026-07-17 20:13:05 | INFO | BI | ========================
 2026-07-17 20:13:05 | INFO | BI | Executed successfully!
 2026-07-17 20:13:05 | INFO | BI | ========================
+2026-07-18 18:33:33 | INFO | BI | === RUN START ===
+2026-07-18 18:33:33 | INFO | BI | project=BI
+2026-07-18 18:33:33 | INFO | BI | repo_dir=bintel-03-cleaning
+2026-07-18 18:33:33 | INFO | BI | python=3.14.6
+2026-07-18 18:33:33 | INFO | BI | os=Windows 11
+2026-07-18 18:33:33 | INFO | BI | shell=powershell
+2026-07-18 18:33:33 | INFO | BI | cwd=.
+2026-07-18 18:33:33 | INFO | BI | github_actions=False
+2026-07-18 18:33:33 | INFO | BI | ========================
+2026-07-18 18:33:33 | INFO | BI | START main()
+2026-07-18 18:33:33 | INFO | BI | ========================
+2026-07-18 18:33:33 | INFO | BI | Raw data:      = data\raw
+2026-07-18 18:33:33 | INFO | BI | Prepared data: = data\prepared
+2026-07-18 18:33:33 | INFO | BI | Task 1. LOAD. Call a function to load each dataset......
+2026-07-18 18:33:33 | INFO | BI | Loading cafe sales from data\raw\dirty_cafe_sales.csv
+2026-07-18 18:33:33 | INFO | BI | Loaded: 10000 rows, 8 columns
+2026-07-18 18:33:33 | INFO | BI | Task 2. INSPECT. Call a function to inspect each dataset...
+2026-07-18 18:33:33 | INFO | BI | Inspecting cafe sales
+2026-07-18 18:33:33 | INFO | BI |   Columns: ['Transaction ID', 'Item', 'Quantity', 'Price Per Unit', 'Total Spent', 'Payment Method', 'Location', 'Transaction Date']
+2026-07-18 18:33:33 | INFO | BI |   Shape:   10000 rows x 8 columns
+2026-07-18 18:33:33 | DEBUG | BI | 
+  Transaction ID    Item Quantity Price Per Unit Total Spent  Payment Method  Location Transaction Date
+0    TXN_1961373  Coffee        2            2.0         4.0     Credit Card  Takeaway       2023-09-08
+1    TXN_4977031    Cake        4            3.0        12.0            Cash  In-store       2023-05-16
+2    TXN_4271903  Cookie        4            1.0       ERROR     Credit Card  In-store       2023-07-19
+3    TXN_7034554   Salad        2            5.0        10.0         UNKNOWN   UNKNOWN       2023-04-27
+4    TXN_3160411  Coffee        2            2.0         4.0  Digital Wallet  In-store       2023-06-11
+
+2026-07-18 18:33:33 | INFO | BI | Task 3. CHECK QUALITY BEFORE........
+2026-07-18 18:33:33 | INFO | BI | Quality check: cafe sales
+2026-07-18 18:33:33 | INFO | BI | Checking for missing values in cafe sales
+2026-07-18 18:33:33 | INFO | BI |   Total missing values: 6826
+2026-07-18 18:33:33 | WARNING | BI |   Missing by column:
+Item                 333
+Quantity             138
+Price Per Unit       179
+Total Spent          173
+Payment Method      2579
+Location            3265
+Transaction Date     159
+dtype: int64
+2026-07-18 18:33:33 | INFO | BI | Checking for words like 'unknown' or 'error' or 'other' or 'undefined'in cafe sales
+2026-07-18 18:33:33 | WARNING | BI |   Column 'Item' has 344 occurrences of 'unknown'
+2026-07-18 18:33:33 | WARNING | BI |   Column 'Item' has 292 occurrences of 'error'
+2026-07-18 18:33:33 | WARNING | BI |   Column 'Quantity' has 171 occurrences of 'unknown'
+2026-07-18 18:33:33 | WARNING | BI |   Column 'Quantity' has 170 occurrences of 'error'
+2026-07-18 18:33:33 | WARNING | BI |   Column 'Price Per Unit' has 164 occurrences of 'unknown'
+2026-07-18 18:33:33 | WARNING | BI |   Column 'Price Per Unit' has 190 occurrences of 'error'
+2026-07-18 18:33:33 | WARNING | BI |   Column 'Total Spent' has 165 occurrences of 'unknown'
+2026-07-18 18:33:33 | WARNING | BI |   Column 'Total Spent' has 164 occurrences of 'error'
+2026-07-18 18:33:33 | WARNING | BI |   Column 'Payment Method' has 293 occurrences of 'unknown'
+2026-07-18 18:33:33 | WARNING | BI |   Column 'Payment Method' has 306 occurrences of 'error'
+2026-07-18 18:33:33 | WARNING | BI |   Column 'Location' has 338 occurrences of 'unknown'
+2026-07-18 18:33:33 | WARNING | BI |   Column 'Location' has 358 occurrences of 'error'
+2026-07-18 18:33:33 | WARNING | BI |   Column 'Transaction Date' has 159 occurrences of 'unknown'
+2026-07-18 18:33:33 | WARNING | BI |   Column 'Transaction Date' has 142 occurrences of 'error'
+2026-07-18 18:33:33 | INFO | BI | Checking for duplicate rows in cafe sales
+2026-07-18 18:33:33 | INFO | BI |   Duplicate rows: 0
+2026-07-18 18:33:33 | INFO | BI | Outlier check: cafe sales
+2026-07-18 18:33:33 | INFO | BI |   No numeric columns in cafe sales
+2026-07-18 18:33:33 | INFO | BI | Task 4. SUMMARIZE BEFORE.......... 
+2026-07-18 18:33:33 | INFO | BI |   No numeric columns in cafe sales
+2026-07-18 18:33:33 | INFO | BI | Task 5. PREPARE DATASETS.........
+2026-07-18 18:33:33 | INFO | BI | Prepping DataFrame: cafe sales
+2026-07-18 18:33:33 | INFO | BI | Formatting column names for DataFrame: cafe sales
+2026-07-18 18:33:33 | INFO | BI |   Formatted column names: ['Transaction Id', 'Item', 'Quantity', 'Price Per Unit', 'Total Spent', 'Payment Method', 'Location', 'Transaction Date']
+2026-07-18 18:33:33 | INFO | BI | Converting columns to appropriate data types for DataFrame: cafe sales
+2026-07-18 18:33:33 | INFO | BI |   Converted column 'Transaction Id' to string
+2026-07-18 18:33:33 | INFO | BI |   Converted column 'Item' to string
+2026-07-18 18:33:33 | INFO | BI |   Converted column 'Quantity' to numeric
+2026-07-18 18:33:33 | INFO | BI |   Converted column 'Price Per Unit' to numeric
+2026-07-18 18:33:33 | INFO | BI |   Converted column 'Total Spent' to numeric
+2026-07-18 18:33:33 | INFO | BI |   Converted column 'Payment Method' to string
+2026-07-18 18:33:33 | INFO | BI |   Converted column 'Location' to string
+2026-07-18 18:33:33 | INFO | BI |   Converted column 'Transaction Date' to datetime
+2026-07-18 18:33:33 | INFO | BI | Removing duplicate rows for DataFrame: cafe sales
+2026-07-18 18:35:10 | INFO | BI | === RUN START ===
+2026-07-18 18:35:10 | INFO | BI | project=BI
+2026-07-18 18:35:10 | INFO | BI | repo_dir=bintel-03-cleaning
+2026-07-18 18:35:10 | INFO | BI | python=3.14.6
+2026-07-18 18:35:10 | INFO | BI | os=Windows 11
+2026-07-18 18:35:10 | INFO | BI | shell=powershell
+2026-07-18 18:35:10 | INFO | BI | cwd=.
+2026-07-18 18:35:10 | INFO | BI | github_actions=False
+2026-07-18 18:35:10 | INFO | BI | ========================
+2026-07-18 18:35:10 | INFO | BI | START main()
+2026-07-18 18:35:10 | INFO | BI | ========================
+2026-07-18 18:35:10 | INFO | BI | Raw data:      = data\raw
+2026-07-18 18:35:10 | INFO | BI | Prepared data: = data\prepared
+2026-07-18 18:35:10 | INFO | BI | Task 1. LOAD. Call a function to load each dataset......
+2026-07-18 18:35:10 | INFO | BI | Loading cafe sales from data\raw\dirty_cafe_sales.csv
+2026-07-18 18:35:10 | INFO | BI | Loaded: 10000 rows, 8 columns
+2026-07-18 18:35:10 | INFO | BI | Task 2. INSPECT. Call a function to inspect each dataset...
+2026-07-18 18:35:10 | INFO | BI | Inspecting cafe sales
+2026-07-18 18:35:10 | INFO | BI |   Columns: ['Transaction ID', 'Item', 'Quantity', 'Price Per Unit', 'Total Spent', 'Payment Method', 'Location', 'Transaction Date']
+2026-07-18 18:35:10 | INFO | BI |   Shape:   10000 rows x 8 columns
+2026-07-18 18:35:10 | DEBUG | BI | 
+  Transaction ID    Item Quantity Price Per Unit Total Spent  Payment Method  Location Transaction Date
+0    TXN_1961373  Coffee        2            2.0         4.0     Credit Card  Takeaway       2023-09-08
+1    TXN_4977031    Cake        4            3.0        12.0            Cash  In-store       2023-05-16
+2    TXN_4271903  Cookie        4            1.0       ERROR     Credit Card  In-store       2023-07-19
+3    TXN_7034554   Salad        2            5.0        10.0         UNKNOWN   UNKNOWN       2023-04-27
+4    TXN_3160411  Coffee        2            2.0         4.0  Digital Wallet  In-store       2023-06-11
+
+2026-07-18 18:35:10 | INFO | BI | Task 3. CHECK QUALITY BEFORE........
+2026-07-18 18:35:10 | INFO | BI | Quality check: cafe sales
+2026-07-18 18:35:10 | INFO | BI | Checking for missing values in cafe sales
+2026-07-18 18:35:10 | INFO | BI |   Total missing values: 6826
+2026-07-18 18:35:10 | WARNING | BI |   Missing by column:
+Item                 333
+Quantity             138
+Price Per Unit       179
+Total Spent          173
+Payment Method      2579
+Location            3265
+Transaction Date     159
+dtype: int64
+2026-07-18 18:35:10 | INFO | BI | Checking for words like 'unknown' or 'error' or 'other' or 'undefined'in cafe sales
+2026-07-18 18:35:10 | WARNING | BI |   Column 'Item' has 344 occurrences of 'unknown'
+2026-07-18 18:35:10 | WARNING | BI |   Column 'Item' has 292 occurrences of 'error'
+2026-07-18 18:35:10 | WARNING | BI |   Column 'Quantity' has 171 occurrences of 'unknown'
+2026-07-18 18:35:10 | WARNING | BI |   Column 'Quantity' has 170 occurrences of 'error'
+2026-07-18 18:35:10 | WARNING | BI |   Column 'Price Per Unit' has 164 occurrences of 'unknown'
+2026-07-18 18:35:10 | WARNING | BI |   Column 'Price Per Unit' has 190 occurrences of 'error'
+2026-07-18 18:35:10 | WARNING | BI |   Column 'Total Spent' has 165 occurrences of 'unknown'
+2026-07-18 18:35:10 | WARNING | BI |   Column 'Total Spent' has 164 occurrences of 'error'
+2026-07-18 18:35:10 | WARNING | BI |   Column 'Payment Method' has 293 occurrences of 'unknown'
+2026-07-18 18:35:10 | WARNING | BI |   Column 'Payment Method' has 306 occurrences of 'error'
+2026-07-18 18:35:10 | WARNING | BI |   Column 'Location' has 338 occurrences of 'unknown'
+2026-07-18 18:35:10 | WARNING | BI |   Column 'Location' has 358 occurrences of 'error'
+2026-07-18 18:35:10 | WARNING | BI |   Column 'Transaction Date' has 159 occurrences of 'unknown'
+2026-07-18 18:35:10 | WARNING | BI |   Column 'Transaction Date' has 142 occurrences of 'error'
+2026-07-18 18:35:10 | INFO | BI | Checking for duplicate rows in cafe sales
+2026-07-18 18:35:10 | INFO | BI |   Duplicate rows: 0
+2026-07-18 18:35:10 | INFO | BI | Outlier check: cafe sales
+2026-07-18 18:35:10 | INFO | BI |   No numeric columns in cafe sales
+2026-07-18 18:35:10 | INFO | BI | Task 4. SUMMARIZE BEFORE.......... 
+2026-07-18 18:35:10 | INFO | BI |   No numeric columns in cafe sales
+2026-07-18 18:35:10 | INFO | BI | Task 5. PREPARE DATASETS.........
+2026-07-18 18:35:10 | INFO | BI | Prepping DataFrame: cafe sales
+2026-07-18 18:35:10 | INFO | BI | Formatting column names for DataFrame: cafe sales
+2026-07-18 18:35:10 | INFO | BI |   Formatted column names: ['Transactionid', 'Item', 'Quantity', 'Priceperunit', 'Totalspent', 'Paymentmethod', 'Location', 'Transactiondate']
+2026-07-18 18:35:10 | INFO | BI | Converting columns to appropriate data types for DataFrame: cafe sales
+2026-07-18 18:35:10 | INFO | BI |   Converted column 'Transactionid' to string
+2026-07-18 18:35:10 | INFO | BI |   Converted column 'Item' to string
+2026-07-18 18:35:10 | INFO | BI |   Converted column 'Quantity' to numeric
+2026-07-18 18:35:10 | INFO | BI |   Converted column 'Priceperunit' to numeric
+2026-07-18 18:35:10 | INFO | BI |   Converted column 'Totalspent' to numeric
+2026-07-18 18:35:10 | INFO | BI |   Converted column 'Paymentmethod' to string
+2026-07-18 18:35:10 | INFO | BI |   Converted column 'Location' to string
+2026-07-18 18:35:10 | INFO | BI |   Converted column 'Transactiondate' to datetime
+2026-07-18 18:35:10 | INFO | BI | Removing duplicate rows for DataFrame: cafe sales
+2026-07-18 18:41:32 | INFO | BI | === RUN START ===
+2026-07-18 18:41:32 | INFO | BI | project=BI
+2026-07-18 18:41:32 | INFO | BI | repo_dir=bintel-03-cleaning
+2026-07-18 18:41:32 | INFO | BI | python=3.14.6
+2026-07-18 18:41:32 | INFO | BI | os=Windows 11
+2026-07-18 18:41:32 | INFO | BI | shell=powershell
+2026-07-18 18:41:32 | INFO | BI | cwd=.
+2026-07-18 18:41:32 | INFO | BI | github_actions=False
+2026-07-18 18:41:32 | INFO | BI | ========================
+2026-07-18 18:41:32 | INFO | BI | START main()
+2026-07-18 18:41:32 | INFO | BI | ========================
+2026-07-18 18:41:32 | INFO | BI | Raw data:      = data\raw
+2026-07-18 18:41:32 | INFO | BI | Prepared data: = data\prepared
+2026-07-18 18:41:32 | INFO | BI | Task 1. LOAD. Call a function to load each dataset......
+2026-07-18 18:41:32 | INFO | BI | Loading cafe sales from data\raw\dirty_cafe_sales.csv
+2026-07-18 18:41:32 | INFO | BI | Loaded: 10000 rows, 8 columns
+2026-07-18 18:41:32 | INFO | BI | Task 2. INSPECT. Call a function to inspect each dataset...
+2026-07-18 18:41:32 | INFO | BI | Inspecting cafe sales
+2026-07-18 18:41:32 | INFO | BI |   Columns: ['Transaction ID', 'Item', 'Quantity', 'Price Per Unit', 'Total Spent', 'Payment Method', 'Location', 'Transaction Date']
+2026-07-18 18:41:32 | INFO | BI |   Shape:   10000 rows x 8 columns
+2026-07-18 18:41:32 | DEBUG | BI | 
+  Transaction ID    Item Quantity Price Per Unit Total Spent  Payment Method  Location Transaction Date
+0    TXN_1961373  Coffee        2            2.0         4.0     Credit Card  Takeaway       2023-09-08
+1    TXN_4977031    Cake        4            3.0        12.0            Cash  In-store       2023-05-16
+2    TXN_4271903  Cookie        4            1.0       ERROR     Credit Card  In-store       2023-07-19
+3    TXN_7034554   Salad        2            5.0        10.0         UNKNOWN   UNKNOWN       2023-04-27
+4    TXN_3160411  Coffee        2            2.0         4.0  Digital Wallet  In-store       2023-06-11
+
+2026-07-18 18:41:32 | INFO | BI | Task 3. CHECK QUALITY BEFORE........
+2026-07-18 18:41:32 | INFO | BI | Quality check: cafe sales
+2026-07-18 18:41:32 | INFO | BI | Checking for missing values in cafe sales
+2026-07-18 18:41:32 | INFO | BI |   Total missing values: 6826
+2026-07-18 18:41:32 | WARNING | BI |   Missing by column:
+Item                 333
+Quantity             138
+Price Per Unit       179
+Total Spent          173
+Payment Method      2579
+Location            3265
+Transaction Date     159
+dtype: int64
+2026-07-18 18:41:32 | INFO | BI | Checking for words like 'unknown' or 'error' or 'other' or 'undefined'in cafe sales
+2026-07-18 18:41:32 | WARNING | BI |   Column 'Item' has 344 occurrences of 'unknown'
+2026-07-18 18:41:32 | WARNING | BI |   Column 'Item' has 292 occurrences of 'error'
+2026-07-18 18:41:32 | WARNING | BI |   Column 'Quantity' has 171 occurrences of 'unknown'
+2026-07-18 18:41:32 | WARNING | BI |   Column 'Quantity' has 170 occurrences of 'error'
+2026-07-18 18:41:32 | WARNING | BI |   Column 'Price Per Unit' has 164 occurrences of 'unknown'
+2026-07-18 18:41:32 | WARNING | BI |   Column 'Price Per Unit' has 190 occurrences of 'error'
+2026-07-18 18:41:32 | WARNING | BI |   Column 'Total Spent' has 165 occurrences of 'unknown'
+2026-07-18 18:41:32 | WARNING | BI |   Column 'Total Spent' has 164 occurrences of 'error'
+2026-07-18 18:41:33 | WARNING | BI |   Column 'Payment Method' has 293 occurrences of 'unknown'
+2026-07-18 18:41:33 | WARNING | BI |   Column 'Payment Method' has 306 occurrences of 'error'
+2026-07-18 18:41:33 | WARNING | BI |   Column 'Location' has 338 occurrences of 'unknown'
+2026-07-18 18:41:33 | WARNING | BI |   Column 'Location' has 358 occurrences of 'error'
+2026-07-18 18:41:33 | WARNING | BI |   Column 'Transaction Date' has 159 occurrences of 'unknown'
+2026-07-18 18:41:33 | WARNING | BI |   Column 'Transaction Date' has 142 occurrences of 'error'
+2026-07-18 18:41:33 | INFO | BI | Checking for duplicate rows in cafe sales
+2026-07-18 18:41:33 | INFO | BI |   Duplicate rows: 0
+2026-07-18 18:41:33 | INFO | BI | Outlier check: cafe sales
+2026-07-18 18:41:33 | INFO | BI |   No numeric columns in cafe sales
+2026-07-18 18:41:33 | INFO | BI | Task 4. SUMMARIZE BEFORE.......... 
+2026-07-18 18:41:33 | INFO | BI |   No numeric columns in cafe sales
+2026-07-18 18:41:33 | INFO | BI | Task 5. PREPARE DATASETS.........
+2026-07-18 18:41:33 | INFO | BI | Prepping DataFrame: cafe sales
+2026-07-18 18:41:33 | INFO | BI | Formatting column names for DataFrame: cafe sales
+2026-07-18 18:41:33 | INFO | BI |   Formatted column names: ['TransactionId', 'Item', 'Quantity', 'PricePerUnit', 'TotalSpent', 'PaymentMethod', 'Location', 'TransactionDate']
+2026-07-18 18:41:33 | INFO | BI | Converting columns to appropriate data types for DataFrame: cafe sales
+2026-07-18 18:41:33 | INFO | BI |   Converted column 'TransactionId' to string
+2026-07-18 18:41:33 | INFO | BI |   Converted column 'Item' to string
+2026-07-18 18:41:33 | INFO | BI |   Converted column 'Quantity' to numeric
+2026-07-18 18:41:33 | INFO | BI |   Converted column 'PricePerUnit' to numeric
+2026-07-18 18:41:33 | INFO | BI |   Converted column 'TotalSpent' to numeric
+2026-07-18 18:41:33 | INFO | BI |   Converted column 'PaymentMethod' to string
+2026-07-18 18:41:33 | INFO | BI |   Converted column 'Location' to string
+2026-07-18 18:41:33 | INFO | BI |   Converted column 'TransactionDate' to datetime
+2026-07-18 18:41:33 | INFO | BI | Removing duplicate rows for DataFrame: cafe sales
+2026-07-18 18:52:30 | INFO | BI | === RUN START ===
+2026-07-18 18:52:30 | INFO | BI | project=BI
+2026-07-18 18:52:30 | INFO | BI | repo_dir=bintel-03-cleaning
+2026-07-18 18:52:30 | INFO | BI | python=3.14.6
+2026-07-18 18:52:30 | INFO | BI | os=Windows 11
+2026-07-18 18:52:30 | INFO | BI | shell=powershell
+2026-07-18 18:52:30 | INFO | BI | cwd=.
+2026-07-18 18:52:30 | INFO | BI | github_actions=False
+2026-07-18 18:52:30 | INFO | BI | ========================
+2026-07-18 18:52:30 | INFO | BI | START main()
+2026-07-18 18:52:30 | INFO | BI | ========================
+2026-07-18 18:52:30 | INFO | BI | Raw data:      = data\raw
+2026-07-18 18:52:30 | INFO | BI | Prepared data: = data\prepared
+2026-07-18 18:52:30 | INFO | BI | Task 1. LOAD. Call a function to load each dataset......
+2026-07-18 18:52:30 | INFO | BI | Loading cafe sales from data\raw\dirty_cafe_sales.csv
+2026-07-18 18:52:30 | INFO | BI | Loaded: 10000 rows, 8 columns
+2026-07-18 18:52:30 | INFO | BI | Task 2. INSPECT. Call a function to inspect each dataset...
+2026-07-18 18:52:30 | INFO | BI | Inspecting cafe sales
+2026-07-18 18:52:30 | INFO | BI |   Columns: ['Transaction ID', 'Item', 'Quantity', 'Price Per Unit', 'Total Spent', 'Payment Method', 'Location', 'Transaction Date']
+2026-07-18 18:52:30 | INFO | BI |   Shape:   10000 rows x 8 columns
+2026-07-18 18:52:30 | DEBUG | BI | 
+  Transaction ID    Item Quantity Price Per Unit Total Spent  Payment Method  Location Transaction Date
+0    TXN_1961373  Coffee        2            2.0         4.0     Credit Card  Takeaway       2023-09-08
+1    TXN_4977031    Cake        4            3.0        12.0            Cash  In-store       2023-05-16
+2    TXN_4271903  Cookie        4            1.0       ERROR     Credit Card  In-store       2023-07-19
+3    TXN_7034554   Salad        2            5.0        10.0         UNKNOWN   UNKNOWN       2023-04-27
+4    TXN_3160411  Coffee        2            2.0         4.0  Digital Wallet  In-store       2023-06-11
+
+2026-07-18 18:52:30 | INFO | BI | Task 3. CHECK QUALITY BEFORE........
+2026-07-18 18:52:30 | INFO | BI | Quality check: cafe sales
+2026-07-18 18:52:30 | INFO | BI | Checking for missing values in cafe sales
+2026-07-18 18:52:30 | INFO | BI |   Total missing values: 6826
+2026-07-18 18:52:30 | WARNING | BI |   Missing by column:
+Item                 333
+Quantity             138
+Price Per Unit       179
+Total Spent          173
+Payment Method      2579
+Location            3265
+Transaction Date     159
+dtype: int64
+2026-07-18 18:52:30 | INFO | BI | Checking for words like 'unknown' or 'error' or 'other' or 'undefined'in cafe sales
+2026-07-18 18:52:30 | WARNING | BI |   Column 'Item' has 344 occurrences of 'unknown'
+2026-07-18 18:52:30 | WARNING | BI |   Column 'Item' has 292 occurrences of 'error'
+2026-07-18 18:52:30 | WARNING | BI |   Column 'Quantity' has 171 occurrences of 'unknown'
+2026-07-18 18:52:30 | WARNING | BI |   Column 'Quantity' has 170 occurrences of 'error'
+2026-07-18 18:52:30 | WARNING | BI |   Column 'Price Per Unit' has 164 occurrences of 'unknown'
+2026-07-18 18:52:30 | WARNING | BI |   Column 'Price Per Unit' has 190 occurrences of 'error'
+2026-07-18 18:52:30 | WARNING | BI |   Column 'Total Spent' has 165 occurrences of 'unknown'
+2026-07-18 18:52:30 | WARNING | BI |   Column 'Total Spent' has 164 occurrences of 'error'
+2026-07-18 18:52:30 | WARNING | BI |   Column 'Payment Method' has 293 occurrences of 'unknown'
+2026-07-18 18:52:30 | WARNING | BI |   Column 'Payment Method' has 306 occurrences of 'error'
+2026-07-18 18:52:30 | WARNING | BI |   Column 'Location' has 338 occurrences of 'unknown'
+2026-07-18 18:52:30 | WARNING | BI |   Column 'Location' has 358 occurrences of 'error'
+2026-07-18 18:52:30 | WARNING | BI |   Column 'Transaction Date' has 159 occurrences of 'unknown'
+2026-07-18 18:52:30 | WARNING | BI |   Column 'Transaction Date' has 142 occurrences of 'error'
+2026-07-18 18:52:30 | INFO | BI | Checking for duplicate rows in cafe sales
+2026-07-18 18:52:30 | INFO | BI |   Duplicate rows: 0
+2026-07-18 18:52:30 | INFO | BI | Outlier check: cafe sales
+2026-07-18 18:52:30 | INFO | BI |   No numeric columns in cafe sales
+2026-07-18 18:52:30 | INFO | BI | Task 4. SUMMARIZE BEFORE.......... 
+2026-07-18 18:52:30 | INFO | BI |   No numeric columns in cafe sales
+2026-07-18 18:52:30 | INFO | BI | Task 5. PREPARE DATASETS.........
+2026-07-18 18:52:30 | INFO | BI | Prepping DataFrame: cafe sales
+2026-07-18 18:52:30 | INFO | BI | Formatting column names for DataFrame: cafe sales
+2026-07-18 18:52:30 | INFO | BI |   Formatted column names: ['TransactionId', 'Item', 'Quantity', 'PricePerUnit', 'TotalSpent', 'PaymentMethod', 'Location', 'TransactionDate']
+2026-07-18 18:52:30 | INFO | BI | Converting columns to appropriate data types for DataFrame: cafe sales
+2026-07-18 18:52:30 | INFO | BI |   Converted column 'TransactionId' to string
+2026-07-18 18:52:30 | INFO | BI |   Converted column 'Item' to string
+2026-07-18 18:52:30 | INFO | BI |   Converted column 'Quantity' to numeric
+2026-07-18 18:52:30 | INFO | BI |   Converted column 'PricePerUnit' to numeric
+2026-07-18 18:52:30 | INFO | BI |   Converted column 'TotalSpent' to numeric
+2026-07-18 18:52:30 | INFO | BI |   Converted column 'PaymentMethod' to string
+2026-07-18 18:52:30 | INFO | BI |   Converted column 'Location' to string
+2026-07-18 18:52:30 | INFO | BI |   Converted column 'TransactionDate' to datetime
+2026-07-18 18:52:30 | INFO | BI | Removing duplicate rows for DataFrame: cafe sales
+2026-07-18 18:52:30 | INFO | BI | Data types for DataFrame: cafe sales
+2026-07-18 18:52:30 | INFO | BI |   Column 'TransactionId' has dtype: str
+2026-07-18 18:52:30 | INFO | BI |   Column 'Item' has dtype: str
+2026-07-18 18:52:30 | INFO | BI |   Column 'Quantity' has dtype: str
+2026-07-18 18:52:30 | INFO | BI |   Column 'PricePerUnit' has dtype: str
+2026-07-18 18:52:30 | INFO | BI |   Column 'TotalSpent' has dtype: str
+2026-07-18 18:52:30 | INFO | BI |   Column 'PaymentMethod' has dtype: str
+2026-07-18 18:52:30 | INFO | BI |   Column 'Location' has dtype: str
+2026-07-18 18:52:30 | INFO | BI |   Column 'TransactionDate' has dtype: str
+2026-07-18 18:59:28 | INFO | BI | === RUN START ===
+2026-07-18 18:59:28 | INFO | BI | project=BI
+2026-07-18 18:59:28 | INFO | BI | repo_dir=bintel-03-cleaning
+2026-07-18 18:59:28 | INFO | BI | python=3.14.6
+2026-07-18 18:59:28 | INFO | BI | os=Windows 11
+2026-07-18 18:59:28 | INFO | BI | shell=powershell
+2026-07-18 18:59:28 | INFO | BI | cwd=.
+2026-07-18 18:59:28 | INFO | BI | github_actions=False
+2026-07-18 18:59:28 | INFO | BI | ========================
+2026-07-18 18:59:28 | INFO | BI | START main()
+2026-07-18 18:59:28 | INFO | BI | ========================
+2026-07-18 18:59:28 | INFO | BI | Raw data:      = data\raw
+2026-07-18 18:59:28 | INFO | BI | Prepared data: = data\prepared
+2026-07-18 18:59:28 | INFO | BI | Task 1. LOAD. Call a function to load each dataset......
+2026-07-18 18:59:28 | INFO | BI | Loading cafe sales from data\raw\dirty_cafe_sales.csv
+2026-07-18 18:59:28 | INFO | BI | Loaded: 10000 rows, 8 columns
+2026-07-18 18:59:28 | INFO | BI | Task 2. INSPECT. Call a function to inspect each dataset...
+2026-07-18 18:59:28 | INFO | BI | Inspecting cafe sales
+2026-07-18 18:59:28 | INFO | BI |   Columns: ['Transaction ID', 'Item', 'Quantity', 'Price Per Unit', 'Total Spent', 'Payment Method', 'Location', 'Transaction Date']
+2026-07-18 18:59:28 | INFO | BI |   Shape:   10000 rows x 8 columns
+2026-07-18 18:59:28 | DEBUG | BI | 
+  Transaction ID    Item Quantity Price Per Unit Total Spent  Payment Method  Location Transaction Date
+0    TXN_1961373  Coffee        2            2.0         4.0     Credit Card  Takeaway       2023-09-08
+1    TXN_4977031    Cake        4            3.0        12.0            Cash  In-store       2023-05-16
+2    TXN_4271903  Cookie        4            1.0       ERROR     Credit Card  In-store       2023-07-19
+3    TXN_7034554   Salad        2            5.0        10.0         UNKNOWN   UNKNOWN       2023-04-27
+4    TXN_3160411  Coffee        2            2.0         4.0  Digital Wallet  In-store       2023-06-11
+
+2026-07-18 18:59:28 | INFO | BI | Task 3. CHECK QUALITY BEFORE........
+2026-07-18 18:59:28 | INFO | BI | Quality check: cafe sales
+2026-07-18 18:59:28 | INFO | BI | Checking for missing values in cafe sales
+2026-07-18 18:59:28 | INFO | BI |   Total missing values: 6826
+2026-07-18 18:59:28 | WARNING | BI |   Missing by column:
+Item                 333
+Quantity             138
+Price Per Unit       179
+Total Spent          173
+Payment Method      2579
+Location            3265
+Transaction Date     159
+dtype: int64
+2026-07-18 18:59:28 | INFO | BI | Checking for words like 'unknown' or 'error' or 'other' or 'undefined'in cafe sales
+2026-07-18 18:59:28 | WARNING | BI |   Column 'Item' has 344 occurrences of 'unknown'
+2026-07-18 18:59:28 | WARNING | BI |   Column 'Item' has 292 occurrences of 'error'
+2026-07-18 18:59:28 | WARNING | BI |   Column 'Quantity' has 171 occurrences of 'unknown'
+2026-07-18 18:59:28 | WARNING | BI |   Column 'Quantity' has 170 occurrences of 'error'
+2026-07-18 18:59:28 | WARNING | BI |   Column 'Price Per Unit' has 164 occurrences of 'unknown'
+2026-07-18 18:59:28 | WARNING | BI |   Column 'Price Per Unit' has 190 occurrences of 'error'
+2026-07-18 18:59:28 | WARNING | BI |   Column 'Total Spent' has 165 occurrences of 'unknown'
+2026-07-18 18:59:28 | WARNING | BI |   Column 'Total Spent' has 164 occurrences of 'error'
+2026-07-18 18:59:28 | WARNING | BI |   Column 'Payment Method' has 293 occurrences of 'unknown'
+2026-07-18 18:59:28 | WARNING | BI |   Column 'Payment Method' has 306 occurrences of 'error'
+2026-07-18 18:59:28 | WARNING | BI |   Column 'Location' has 338 occurrences of 'unknown'
+2026-07-18 18:59:28 | WARNING | BI |   Column 'Location' has 358 occurrences of 'error'
+2026-07-18 18:59:28 | WARNING | BI |   Column 'Transaction Date' has 159 occurrences of 'unknown'
+2026-07-18 18:59:28 | WARNING | BI |   Column 'Transaction Date' has 142 occurrences of 'error'
+2026-07-18 18:59:28 | INFO | BI | Checking for duplicate rows in cafe sales
+2026-07-18 18:59:28 | INFO | BI |   Duplicate rows: 0
+2026-07-18 18:59:28 | INFO | BI | Outlier check: cafe sales
+2026-07-18 18:59:28 | INFO | BI |   No numeric columns in cafe sales
+2026-07-18 18:59:28 | INFO | BI | Task 4. SUMMARIZE BEFORE.......... 
+2026-07-18 18:59:28 | INFO | BI |   No numeric columns in cafe sales
+2026-07-18 18:59:28 | INFO | BI | Task 5. PREPARE DATASETS.........
+2026-07-18 18:59:28 | INFO | BI | Prepping DataFrame: cafe sales
+2026-07-18 18:59:28 | INFO | BI | Formatting column names for DataFrame: cafe sales
+2026-07-18 18:59:28 | INFO | BI |   Formatted column names: ['TransactionId', 'Item', 'Quantity', 'PricePerUnit', 'TotalSpent', 'PaymentMethod', 'Location', 'TransactionDate']
+2026-07-18 18:59:28 | INFO | BI | Removing duplicate rows for DataFrame: cafe sales
+2026-07-18 18:59:29 | INFO | BI | Converting columns to appropriate data types for DataFrame: cafe sales
+2026-07-18 18:59:29 | INFO | BI |   Converted column 'TransactionId' to string
+2026-07-18 18:59:29 | INFO | BI |   Converted column 'Item' to string
+2026-07-18 18:59:29 | INFO | BI |   Converted column 'Quantity' to numeric
+2026-07-18 18:59:29 | INFO | BI |   Converted column 'PricePerUnit' to numeric
+2026-07-18 18:59:29 | INFO | BI |   Converted column 'TotalSpent' to numeric
+2026-07-18 18:59:29 | INFO | BI |   Converted column 'PaymentMethod' to string
+2026-07-18 18:59:29 | INFO | BI |   Converted column 'Location' to string
+2026-07-18 18:59:29 | INFO | BI |   Converted column 'TransactionDate' to datetime
+2026-07-18 18:59:29 | INFO | BI | Data types for DataFrame: cafe sales
+2026-07-18 18:59:29 | INFO | BI |   Column 'TransactionId' has dtype: str
+2026-07-18 18:59:29 | INFO | BI |   Column 'Item' has dtype: str
+2026-07-18 18:59:29 | INFO | BI |   Column 'Quantity' has dtype: float64
+2026-07-18 18:59:29 | INFO | BI |   Column 'PricePerUnit' has dtype: float64
+2026-07-18 18:59:29 | INFO | BI |   Column 'TotalSpent' has dtype: float64
+2026-07-18 18:59:29 | INFO | BI |   Column 'PaymentMethod' has dtype: str
+2026-07-18 18:59:29 | INFO | BI |   Column 'Location' has dtype: str
+2026-07-18 18:59:29 | INFO | BI |   Column 'TransactionDate' has dtype: datetime64[us]
+2026-07-18 18:59:29 | INFO | BI |   Filling 333 missing value(s) in column 'Item' with mode: Juice
+2026-07-18 18:59:29 | INFO | BI |   Filling 2579 missing value(s) in column 'PaymentMethod' with mode: Digital Wallet
+2026-07-18 18:59:29 | INFO | BI |   Filling 3265 missing value(s) in column 'Location' with mode: Takeaway
+2026-07-18 18:59:29 | INFO | BI |   Removed rows with missing values, remaining rows: 9540
+2026-07-18 18:59:29 | INFO | BI | Task 6. CHECK QUALITY AFTER PREPARATION........
+2026-07-18 18:59:29 | INFO | BI | Quality check: cafe sales prepared
+2026-07-18 18:59:29 | INFO | BI | Checking for missing values in cafe sales prepared
+2026-07-18 18:59:29 | INFO | BI |   Total missing values: 0
+2026-07-18 18:59:29 | INFO | BI | Checking for words like 'unknown' or 'error' or 'other' or 'undefined'in cafe sales prepared
+2026-07-18 18:59:29 | WARNING | BI |   Column 'Item' has 329 occurrences of 'unknown'
+2026-07-18 18:59:29 | WARNING | BI |   Column 'Item' has 283 occurrences of 'error'
+2026-07-18 18:59:29 | WARNING | BI |   Column 'PaymentMethod' has 280 occurrences of 'unknown'
+2026-07-18 18:59:29 | WARNING | BI |   Column 'PaymentMethod' has 296 occurrences of 'error'
+2026-07-18 18:59:29 | WARNING | BI |   Column 'Location' has 320 occurrences of 'unknown'
+2026-07-18 18:59:30 | WARNING | BI |   Column 'Location' has 341 occurrences of 'error'
+2026-07-18 18:59:30 | INFO | BI | Checking for duplicate rows in cafe sales prepared
+2026-07-18 18:59:30 | INFO | BI |   Duplicate rows: 0
+2026-07-18 18:59:30 | INFO | BI | Outlier check: cafe sales prepared
+2026-07-18 18:59:30 | INFO | BI |   Column 'Quantity' has 1 outlier(s)
+2026-07-18 18:59:30 | DEBUG | BI |   Outliers in column 'Quantity':
+      Quantity  PricePerUnit  TotalSpent
+3779  8.333333           3.0        25.0
+2026-07-18 18:59:30 | INFO | BI |   Column 'PricePerUnit' has 0 outlier(s)
+2026-07-18 18:59:30 | INFO | BI |   Column 'TotalSpent' has 260 outlier(s)
+2026-07-18 18:59:30 | DEBUG | BI |   Outliers in column 'TotalSpent':
+      Quantity  PricePerUnit  TotalSpent
+10         5.0           5.0        25.0
+51         5.0           5.0        25.0
+52         5.0           5.0        25.0
+96         5.0           5.0        25.0
+100        5.0           5.0        25.0
+...        ...           ...         ...
+9791       5.0           5.0        25.0
+9805       5.0           5.0        25.0
+9879       5.0           5.0        25.0
+9908       5.0           5.0        25.0
+9971       5.0           5.0        25.0
+
+[260 rows x 3 columns]
+2026-07-18 18:59:30 | INFO | BI | Task 7. SUMMARIZE AFTER PREPARATION........
+2026-07-18 18:59:30 | INFO | BI | Numeric summary: cafe sales prepared
+2026-07-18 18:59:30 | INFO | BI | 
+       Quantity  PricePerUnit  TotalSpent
+count   9540.00       9540.00     9540.00
+mean       3.02          2.95        8.92
+std        1.42          1.28        6.00
+min        1.00          1.00        1.00
+25%        2.00          2.00        4.00
+50%        3.00          3.00        8.00
+75%        4.00          4.00       12.00
+max        8.33          5.00       25.00
+2026-07-18 18:59:30 | INFO | BI | Task 8. SAVE PREPARED DATASETS........
+2026-07-18 18:59:30 | INFO | BI | Saved cafe sales
+2026-07-18 18:59:30 | INFO | BI |   Rows: 9540
+2026-07-18 18:59:30 | INFO | BI |   Path: data\prepared\dirty_cafe_sales_data_prepared.csv
+2026-07-18 18:59:30 | INFO | BI | Workflow complete
+2026-07-18 18:59:30 | INFO | BI | ========================
+2026-07-18 18:59:30 | INFO | BI | Executed successfully!
+2026-07-18 18:59:30 | INFO | BI | ========================
+2026-07-18 19:16:40 | INFO | BI | === RUN START ===
+2026-07-18 19:16:40 | INFO | BI | project=BI
+2026-07-18 19:16:40 | INFO | BI | repo_dir=bintel-03-cleaning
+2026-07-18 19:16:40 | INFO | BI | python=3.14.6
+2026-07-18 19:16:40 | INFO | BI | os=Windows 11
+2026-07-18 19:16:40 | INFO | BI | shell=powershell
+2026-07-18 19:16:40 | INFO | BI | cwd=.
+2026-07-18 19:16:40 | INFO | BI | github_actions=False
+2026-07-18 19:16:40 | INFO | BI | ========================
+2026-07-18 19:16:40 | INFO | BI | START main()
+2026-07-18 19:16:40 | INFO | BI | ========================
+2026-07-18 19:16:40 | INFO | BI | Raw data:      = data\raw
+2026-07-18 19:16:40 | INFO | BI | Prepared data: = data\prepared
+2026-07-18 19:16:40 | INFO | BI | Task 1. LOAD. Call a function to load each dataset......
+2026-07-18 19:16:40 | INFO | BI | Loading cafe sales from data\raw\dirty_cafe_sales.csv
+2026-07-18 19:16:40 | INFO | BI | Loaded: 10000 rows, 8 columns
+2026-07-18 19:16:40 | INFO | BI | Task 2. INSPECT. Call a function to inspect each dataset...
+2026-07-18 19:16:40 | INFO | BI | Inspecting cafe sales
+2026-07-18 19:16:40 | INFO | BI |   Columns: ['Transaction ID', 'Item', 'Quantity', 'Price Per Unit', 'Total Spent', 'Payment Method', 'Location', 'Transaction Date']
+2026-07-18 19:16:40 | INFO | BI |   Shape:   10000 rows x 8 columns
+2026-07-18 19:16:40 | DEBUG | BI | 
+  Transaction ID    Item Quantity Price Per Unit Total Spent  Payment Method  Location Transaction Date
+0    TXN_1961373  Coffee        2            2.0         4.0     Credit Card  Takeaway       2023-09-08
+1    TXN_4977031    Cake        4            3.0        12.0            Cash  In-store       2023-05-16
+2    TXN_4271903  Cookie        4            1.0       ERROR     Credit Card  In-store       2023-07-19
+3    TXN_7034554   Salad        2            5.0        10.0         UNKNOWN   UNKNOWN       2023-04-27
+4    TXN_3160411  Coffee        2            2.0         4.0  Digital Wallet  In-store       2023-06-11
+
+2026-07-18 19:16:40 | INFO | BI | Task 3. CHECK QUALITY BEFORE........
+2026-07-18 19:16:40 | INFO | BI | Quality check: cafe sales
+2026-07-18 19:16:40 | INFO | BI | Checking for missing values in cafe sales
+2026-07-18 19:16:40 | INFO | BI |   Total missing values: 6826
+2026-07-18 19:16:40 | WARNING | BI |   Missing by column:
+Item                 333
+Quantity             138
+Price Per Unit       179
+Total Spent          173
+Payment Method      2579
+Location            3265
+Transaction Date     159
+dtype: int64
+2026-07-18 19:16:40 | INFO | BI | Checking for words like 'unknown' or 'error' or 'other' or 'undefined'in cafe sales
+2026-07-18 19:16:40 | WARNING | BI |   Column 'Item' has 344 occurrences of 'unknown'
+2026-07-18 19:16:40 | WARNING | BI |   Column 'Item' has 292 occurrences of 'error'
+2026-07-18 19:16:40 | WARNING | BI |   Column 'Quantity' has 171 occurrences of 'unknown'
+2026-07-18 19:16:40 | WARNING | BI |   Column 'Quantity' has 170 occurrences of 'error'
+2026-07-18 19:16:40 | WARNING | BI |   Column 'Price Per Unit' has 164 occurrences of 'unknown'
+2026-07-18 19:16:40 | WARNING | BI |   Column 'Price Per Unit' has 190 occurrences of 'error'
+2026-07-18 19:16:40 | WARNING | BI |   Column 'Total Spent' has 165 occurrences of 'unknown'
+2026-07-18 19:16:40 | WARNING | BI |   Column 'Total Spent' has 164 occurrences of 'error'
+2026-07-18 19:16:40 | WARNING | BI |   Column 'Payment Method' has 293 occurrences of 'unknown'
+2026-07-18 19:16:40 | WARNING | BI |   Column 'Payment Method' has 306 occurrences of 'error'
+2026-07-18 19:16:40 | WARNING | BI |   Column 'Location' has 338 occurrences of 'unknown'
+2026-07-18 19:16:40 | WARNING | BI |   Column 'Location' has 358 occurrences of 'error'
+2026-07-18 19:16:40 | WARNING | BI |   Column 'Transaction Date' has 159 occurrences of 'unknown'
+2026-07-18 19:16:40 | WARNING | BI |   Column 'Transaction Date' has 142 occurrences of 'error'
+2026-07-18 19:16:40 | INFO | BI | Checking for duplicate rows in cafe sales
+2026-07-18 19:16:40 | INFO | BI |   Duplicate rows: 0
+2026-07-18 19:16:40 | INFO | BI | Outlier check: cafe sales
+2026-07-18 19:16:40 | INFO | BI |   No numeric columns in cafe sales
+2026-07-18 19:16:40 | INFO | BI | Task 4. SUMMARIZE BEFORE.......... 
+2026-07-18 19:16:40 | INFO | BI |   No numeric columns in cafe sales
+2026-07-18 19:16:40 | INFO | BI | Task 5. PREPARE DATASETS.........
+2026-07-18 19:16:40 | INFO | BI | Prepping DataFrame: cafe sales
+2026-07-18 19:16:40 | INFO | BI | Formatting column names for DataFrame: cafe sales
+2026-07-18 19:16:40 | INFO | BI |   Formatted column names: ['TransactionId', 'Item', 'Quantity', 'PricePerUnit', 'TotalSpent', 'PaymentMethod', 'Location', 'TransactionDate']
+2026-07-18 19:16:40 | INFO | BI | Removing duplicate rows for DataFrame: cafe sales
+2026-07-18 19:16:40 | INFO | BI | Converting columns to appropriate data types for DataFrame: cafe sales
+2026-07-18 19:16:40 | INFO | BI |   Converted column 'TransactionId' to string
+2026-07-18 19:16:40 | INFO | BI |   Converted column 'Item' to string
+2026-07-18 19:16:40 | INFO | BI |   Converted column 'Quantity' to numeric
+2026-07-18 19:16:40 | INFO | BI |   Converted column 'PricePerUnit' to numeric
+2026-07-18 19:16:40 | INFO | BI |   Converted column 'TotalSpent' to numeric
+2026-07-18 19:16:40 | INFO | BI |   Converted column 'PaymentMethod' to string
+2026-07-18 19:16:40 | INFO | BI |   Converted column 'Location' to string
+2026-07-18 19:16:40 | INFO | BI |   Converted column 'TransactionDate' to datetime
+2026-07-18 19:16:40 | INFO | BI | Data types for DataFrame: cafe sales
+2026-07-18 19:16:40 | INFO | BI |   Column 'TransactionId' has dtype: str
+2026-07-18 19:16:40 | INFO | BI |   Column 'Item' has dtype: str
+2026-07-18 19:16:40 | INFO | BI |   Column 'Quantity' has dtype: float64
+2026-07-18 19:16:40 | INFO | BI |   Column 'PricePerUnit' has dtype: float64
+2026-07-18 19:16:40 | INFO | BI |   Column 'TotalSpent' has dtype: float64
+2026-07-18 19:16:40 | INFO | BI |   Column 'PaymentMethod' has dtype: str
+2026-07-18 19:16:40 | INFO | BI |   Column 'Location' has dtype: str
+2026-07-18 19:16:40 | INFO | BI |   Column 'TransactionDate' has dtype: datetime64[us]
+2026-07-18 19:16:41 | INFO | BI |   Filling 333 missing value(s) in column 'Item' with mode: Juice
+2026-07-18 19:16:41 | INFO | BI |   Filling 2579 missing value(s) in column 'PaymentMethod' with mode: Digital Wallet
+2026-07-18 19:16:41 | INFO | BI |   Filling 3265 missing value(s) in column 'Location' with mode: Takeaway
+2026-07-18 19:16:41 | INFO | BI |   Removed rows with missing values, remaining rows: 9540
+2026-07-18 19:16:41 | INFO | BI | Task 6. CHECK QUALITY AFTER PREPARATION........
+2026-07-18 19:16:41 | INFO | BI | Quality check: cafe sales prepared
+2026-07-18 19:16:41 | INFO | BI | Checking for missing values in cafe sales prepared
+2026-07-18 19:16:41 | INFO | BI |   Total missing values: 0
+2026-07-18 19:16:41 | INFO | BI | Checking for words like 'unknown' or 'error' or 'other' or 'undefined'in cafe sales prepared
+2026-07-18 19:16:41 | WARNING | BI |   Column 'Item' has 329 occurrences of 'unknown'
+2026-07-18 19:16:41 | WARNING | BI |   Column 'Item' has 283 occurrences of 'error'
+2026-07-18 19:16:41 | WARNING | BI |   Column 'PaymentMethod' has 280 occurrences of 'unknown'
+2026-07-18 19:16:41 | WARNING | BI |   Column 'PaymentMethod' has 296 occurrences of 'error'
+2026-07-18 19:16:41 | WARNING | BI |   Column 'Location' has 320 occurrences of 'unknown'
+2026-07-18 19:16:41 | WARNING | BI |   Column 'Location' has 341 occurrences of 'error'
+2026-07-18 19:16:41 | INFO | BI | Checking for duplicate rows in cafe sales prepared
+2026-07-18 19:16:41 | INFO | BI |   Duplicate rows: 0
+2026-07-18 19:16:41 | INFO | BI | Outlier check: cafe sales prepared
+2026-07-18 19:16:41 | INFO | BI |   Column 'Quantity' has 1 outlier(s)
+2026-07-18 19:16:41 | DEBUG | BI |   Outliers in column 'Quantity':
+      Quantity  PricePerUnit  TotalSpent
+3779  8.333333           3.0        25.0
+2026-07-18 19:16:41 | INFO | BI |   Column 'PricePerUnit' has 0 outlier(s)
+2026-07-18 19:16:41 | INFO | BI |   Column 'TotalSpent' has 260 outlier(s)
+2026-07-18 19:16:41 | DEBUG | BI |   Outliers in column 'TotalSpent':
+      Quantity  PricePerUnit  TotalSpent
+10         5.0           5.0        25.0
+51         5.0           5.0        25.0
+52         5.0           5.0        25.0
+96         5.0           5.0        25.0
+100        5.0           5.0        25.0
+...        ...           ...         ...
+9791       5.0           5.0        25.0
+9805       5.0           5.0        25.0
+9879       5.0           5.0        25.0
+9908       5.0           5.0        25.0
+9971       5.0           5.0        25.0
+
+[260 rows x 3 columns]
+2026-07-18 19:16:41 | INFO | BI | Task 7. SUMMARIZE AFTER PREPARATION........
+2026-07-18 19:16:41 | INFO | BI | Numeric summary: cafe sales prepared
+2026-07-18 19:16:41 | INFO | BI | 
+       Quantity  PricePerUnit  TotalSpent
+count   9540.00       9540.00     9540.00
+mean       3.02          2.95        8.92
+std        1.42          1.28        6.00
+min        1.00          1.00        1.00
+25%        2.00          2.00        4.00
+50%        3.00          3.00        8.00
+75%        4.00          4.00       12.00
+max        8.33          5.00       25.00
+2026-07-18 19:16:41 | INFO | BI | Task 8. SAVE PREPARED DATASETS........
+2026-07-18 19:16:41 | INFO | BI | Saved cafe sales
+2026-07-18 19:16:41 | INFO | BI |   Rows: 9540
+2026-07-18 19:16:41 | INFO | BI |   Path: data\prepared\dirty_cafe_sales_data_prepared.csv
+2026-07-18 19:16:41 | INFO | BI | Workflow complete
+2026-07-18 19:16:41 | INFO | BI | ========================
+2026-07-18 19:16:41 | INFO | BI | Executed successfully!
+2026-07-18 19:16:41 | INFO | BI | ========================
+2026-07-18 19:26:43 | INFO | BI | === RUN START ===
+2026-07-18 19:26:43 | INFO | BI | project=BI
+2026-07-18 19:26:43 | INFO | BI | repo_dir=bintel-03-cleaning
+2026-07-18 19:26:43 | INFO | BI | python=3.14.6
+2026-07-18 19:26:43 | INFO | BI | os=Windows 11
+2026-07-18 19:26:43 | INFO | BI | shell=powershell
+2026-07-18 19:26:43 | INFO | BI | cwd=.
+2026-07-18 19:26:43 | INFO | BI | github_actions=False
+2026-07-18 19:26:43 | INFO | BI | ========================
+2026-07-18 19:26:43 | INFO | BI | START main()
+2026-07-18 19:26:43 | INFO | BI | ========================
+2026-07-18 19:26:43 | INFO | BI | Raw data:      = data\raw
+2026-07-18 19:26:43 | INFO | BI | Prepared data: = data\prepared
+2026-07-18 19:26:43 | INFO | BI | Task 1. LOAD. Call a function to load each dataset......
+2026-07-18 19:26:43 | INFO | BI | Loading cafe sales from data\raw\dirty_cafe_sales.csv
+2026-07-18 19:26:43 | INFO | BI | Loaded: 10000 rows, 8 columns
+2026-07-18 19:26:43 | INFO | BI | Task 2. INSPECT. Call a function to inspect each dataset...
+2026-07-18 19:26:43 | INFO | BI | Inspecting cafe sales
+2026-07-18 19:26:43 | INFO | BI |   Columns: ['Transaction ID', 'Item', 'Quantity', 'Price Per Unit', 'Total Spent', 'Payment Method', 'Location', 'Transaction Date']
+2026-07-18 19:26:43 | INFO | BI |   Shape:   10000 rows x 8 columns
+2026-07-18 19:26:43 | DEBUG | BI | 
+  Transaction ID    Item Quantity Price Per Unit Total Spent  Payment Method  Location Transaction Date
+0    TXN_1961373  Coffee        2            2.0         4.0     Credit Card  Takeaway       2023-09-08
+1    TXN_4977031    Cake        4            3.0        12.0            Cash  In-store       2023-05-16
+2    TXN_4271903  Cookie        4            1.0       ERROR     Credit Card  In-store       2023-07-19
+3    TXN_7034554   Salad        2            5.0        10.0         UNKNOWN   UNKNOWN       2023-04-27
+4    TXN_3160411  Coffee        2            2.0         4.0  Digital Wallet  In-store       2023-06-11
+
+2026-07-18 19:26:43 | INFO | BI | Task 3. CHECK QUALITY BEFORE........
+2026-07-18 19:26:43 | INFO | BI | Quality check: cafe sales
+2026-07-18 19:26:43 | INFO | BI | Checking for missing values in cafe sales
+2026-07-18 19:26:43 | INFO | BI |   Total missing values: 6826
+2026-07-18 19:26:43 | WARNING | BI |   Missing by column:
+Item                 333
+Quantity             138
+Price Per Unit       179
+Total Spent          173
+Payment Method      2579
+Location            3265
+Transaction Date     159
+dtype: int64
+2026-07-18 19:26:43 | INFO | BI | Checking for words like 'unknown' or 'error' or 'other' or 'undefined'in cafe sales
+2026-07-18 19:26:43 | WARNING | BI |   Column 'Item' has 344 occurrences of 'unknown'
+2026-07-18 19:26:43 | WARNING | BI |   Column 'Item' has 292 occurrences of 'error'
+2026-07-18 19:26:43 | WARNING | BI |   Column 'Quantity' has 171 occurrences of 'unknown'
+2026-07-18 19:26:43 | WARNING | BI |   Column 'Quantity' has 170 occurrences of 'error'
+2026-07-18 19:26:43 | WARNING | BI |   Column 'Price Per Unit' has 164 occurrences of 'unknown'
+2026-07-18 19:26:43 | WARNING | BI |   Column 'Price Per Unit' has 190 occurrences of 'error'
+2026-07-18 19:26:43 | WARNING | BI |   Column 'Total Spent' has 165 occurrences of 'unknown'
+2026-07-18 19:26:43 | WARNING | BI |   Column 'Total Spent' has 164 occurrences of 'error'
+2026-07-18 19:26:43 | WARNING | BI |   Column 'Payment Method' has 293 occurrences of 'unknown'
+2026-07-18 19:26:43 | WARNING | BI |   Column 'Payment Method' has 306 occurrences of 'error'
+2026-07-18 19:26:43 | WARNING | BI |   Column 'Location' has 338 occurrences of 'unknown'
+2026-07-18 19:26:43 | WARNING | BI |   Column 'Location' has 358 occurrences of 'error'
+2026-07-18 19:26:43 | WARNING | BI |   Column 'Transaction Date' has 159 occurrences of 'unknown'
+2026-07-18 19:26:43 | WARNING | BI |   Column 'Transaction Date' has 142 occurrences of 'error'
+2026-07-18 19:26:43 | INFO | BI | Checking for duplicate rows in cafe sales
+2026-07-18 19:26:43 | INFO | BI |   Duplicate rows: 0
+2026-07-18 19:26:43 | INFO | BI | Outlier check: cafe sales
+2026-07-18 19:26:43 | INFO | BI |   No numeric columns in cafe sales
+2026-07-18 19:26:43 | INFO | BI | Task 4. SUMMARIZE BEFORE.......... 
+2026-07-18 19:26:43 | INFO | BI |   No numeric columns in cafe sales
+2026-07-18 19:26:43 | INFO | BI | Task 5. PREPARE DATASETS.........
+2026-07-18 19:26:43 | INFO | BI | Prepping DataFrame: cafe sales
+2026-07-18 19:26:43 | INFO | BI | Formatting column names for DataFrame: cafe sales
+2026-07-18 19:26:43 | INFO | BI |   Formatted column names: ['TransactionId', 'Item', 'Quantity', 'PricePerUnit', 'TotalSpent', 'PaymentMethod', 'Location', 'TransactionDate']
+2026-07-18 19:26:43 | INFO | BI | Removing duplicate rows for DataFrame: cafe sales
+2026-07-18 19:26:43 | INFO | BI |   No duplicate rows found for DataFrame: cafe sales
+2026-07-18 19:26:43 | INFO | BI | Converted invalid words to blank values for DataFrame: cafe sales
+2026-07-18 19:26:43 | INFO | BI | Converting columns to appropriate data types for DataFrame: cafe sales
+2026-07-18 19:26:43 | INFO | BI |   Converted column 'TransactionId' to string
+2026-07-18 19:26:43 | INFO | BI |   Converted column 'Item' to string
+2026-07-18 19:26:43 | INFO | BI |   Converted column 'Quantity' to numeric
+2026-07-18 19:26:43 | INFO | BI |   Converted column 'PricePerUnit' to numeric
+2026-07-18 19:26:43 | INFO | BI |   Converted column 'TotalSpent' to numeric
+2026-07-18 19:26:43 | INFO | BI |   Converted column 'PaymentMethod' to string
+2026-07-18 19:26:43 | INFO | BI |   Converted column 'Location' to string
+2026-07-18 19:26:43 | INFO | BI |   Converted column 'TransactionDate' to datetime
+2026-07-18 19:26:43 | INFO | BI | Data types for DataFrame: cafe sales
+2026-07-18 19:26:43 | INFO | BI |   Column 'TransactionId' has dtype: str
+2026-07-18 19:26:43 | INFO | BI |   Column 'Item' has dtype: str
+2026-07-18 19:26:43 | INFO | BI |   Column 'Quantity' has dtype: Int64
+2026-07-18 19:26:43 | INFO | BI |   Column 'PricePerUnit' has dtype: Float64
+2026-07-18 19:26:43 | INFO | BI |   Column 'TotalSpent' has dtype: Float64
+2026-07-18 19:26:43 | INFO | BI |   Column 'PaymentMethod' has dtype: str
+2026-07-18 19:26:43 | INFO | BI |   Column 'Location' has dtype: str
+2026-07-18 19:26:43 | INFO | BI |   Column 'TransactionDate' has dtype: datetime64[us]
+2026-07-18 19:32:10 | INFO | BI | === RUN START ===
+2026-07-18 19:32:10 | INFO | BI | project=BI
+2026-07-18 19:32:10 | INFO | BI | repo_dir=bintel-03-cleaning
+2026-07-18 19:32:10 | INFO | BI | python=3.14.6
+2026-07-18 19:32:10 | INFO | BI | os=Windows 11
+2026-07-18 19:32:10 | INFO | BI | shell=powershell
+2026-07-18 19:32:10 | INFO | BI | cwd=.
+2026-07-18 19:32:10 | INFO | BI | github_actions=False
+2026-07-18 19:32:10 | INFO | BI | ========================
+2026-07-18 19:32:10 | INFO | BI | START main()
+2026-07-18 19:32:10 | INFO | BI | ========================
+2026-07-18 19:32:10 | INFO | BI | Raw data:      = data\raw
+2026-07-18 19:32:10 | INFO | BI | Prepared data: = data\prepared
+2026-07-18 19:32:10 | INFO | BI | Task 1. LOAD. Call a function to load each dataset......
+2026-07-18 19:32:10 | INFO | BI | Loading cafe sales from data\raw\dirty_cafe_sales.csv
+2026-07-18 19:32:10 | INFO | BI | Loaded: 10000 rows, 8 columns
+2026-07-18 19:32:10 | INFO | BI | Task 2. INSPECT. Call a function to inspect each dataset...
+2026-07-18 19:32:10 | INFO | BI | Inspecting cafe sales
+2026-07-18 19:32:10 | INFO | BI |   Columns: ['Transaction ID', 'Item', 'Quantity', 'Price Per Unit', 'Total Spent', 'Payment Method', 'Location', 'Transaction Date']
+2026-07-18 19:32:10 | INFO | BI |   Shape:   10000 rows x 8 columns
+2026-07-18 19:32:10 | DEBUG | BI | 
+  Transaction ID    Item Quantity Price Per Unit Total Spent  Payment Method  Location Transaction Date
+0    TXN_1961373  Coffee        2            2.0         4.0     Credit Card  Takeaway       2023-09-08
+1    TXN_4977031    Cake        4            3.0        12.0            Cash  In-store       2023-05-16
+2    TXN_4271903  Cookie        4            1.0       ERROR     Credit Card  In-store       2023-07-19
+3    TXN_7034554   Salad        2            5.0        10.0         UNKNOWN   UNKNOWN       2023-04-27
+4    TXN_3160411  Coffee        2            2.0         4.0  Digital Wallet  In-store       2023-06-11
+
+2026-07-18 19:32:10 | INFO | BI | Task 3. CHECK QUALITY BEFORE........
+2026-07-18 19:32:10 | INFO | BI | Quality check: cafe sales
+2026-07-18 19:32:10 | INFO | BI | Checking for missing values in cafe sales
+2026-07-18 19:32:10 | INFO | BI |   Total missing values: 6826
+2026-07-18 19:32:10 | WARNING | BI |   Missing by column:
+Item                 333
+Quantity             138
+Price Per Unit       179
+Total Spent          173
+Payment Method      2579
+Location            3265
+Transaction Date     159
+dtype: int64
+2026-07-18 19:32:10 | INFO | BI | Checking for words like 'unknown' or 'error' or 'other' or 'undefined'in cafe sales
+2026-07-18 19:32:10 | WARNING | BI |   Column 'Item' has 344 occurrences of 'unknown'
+2026-07-18 19:32:10 | WARNING | BI |   Column 'Item' has 292 occurrences of 'error'
+2026-07-18 19:32:10 | WARNING | BI |   Column 'Quantity' has 171 occurrences of 'unknown'
+2026-07-18 19:32:10 | WARNING | BI |   Column 'Quantity' has 170 occurrences of 'error'
+2026-07-18 19:32:10 | WARNING | BI |   Column 'Price Per Unit' has 164 occurrences of 'unknown'
+2026-07-18 19:32:10 | WARNING | BI |   Column 'Price Per Unit' has 190 occurrences of 'error'
+2026-07-18 19:32:10 | WARNING | BI |   Column 'Total Spent' has 165 occurrences of 'unknown'
+2026-07-18 19:32:10 | WARNING | BI |   Column 'Total Spent' has 164 occurrences of 'error'
+2026-07-18 19:32:10 | WARNING | BI |   Column 'Payment Method' has 293 occurrences of 'unknown'
+2026-07-18 19:32:10 | WARNING | BI |   Column 'Payment Method' has 306 occurrences of 'error'
+2026-07-18 19:32:10 | WARNING | BI |   Column 'Location' has 338 occurrences of 'unknown'
+2026-07-18 19:32:10 | WARNING | BI |   Column 'Location' has 358 occurrences of 'error'
+2026-07-18 19:32:10 | WARNING | BI |   Column 'Transaction Date' has 159 occurrences of 'unknown'
+2026-07-18 19:32:10 | WARNING | BI |   Column 'Transaction Date' has 142 occurrences of 'error'
+2026-07-18 19:32:10 | INFO | BI | Checking for duplicate rows in cafe sales
+2026-07-18 19:32:10 | INFO | BI |   Duplicate rows: 0
+2026-07-18 19:32:10 | INFO | BI | Outlier check: cafe sales
+2026-07-18 19:32:10 | INFO | BI |   No numeric columns in cafe sales
+2026-07-18 19:32:10 | INFO | BI | Task 4. SUMMARIZE BEFORE.......... 
+2026-07-18 19:32:10 | INFO | BI |   No numeric columns in cafe sales
+2026-07-18 19:32:10 | INFO | BI | Task 5. PREPARE DATASETS.........
+2026-07-18 19:32:10 | INFO | BI | Prepping DataFrame: cafe sales
+2026-07-18 19:32:10 | INFO | BI | Formatting column names for DataFrame: cafe sales
+2026-07-18 19:32:10 | INFO | BI |   Formatted column names: ['TransactionId', 'Item', 'Quantity', 'PricePerUnit', 'TotalSpent', 'PaymentMethod', 'Location', 'TransactionDate']
+2026-07-18 19:32:10 | INFO | BI | Removing duplicate rows for DataFrame: cafe sales
+2026-07-18 19:32:10 | INFO | BI |   No duplicate rows found for DataFrame: cafe sales
+2026-07-18 19:32:10 | INFO | BI | Converted invalid words to blank values for DataFrame: cafe sales
+2026-07-18 19:32:10 | INFO | BI | Converting columns to appropriate data types for DataFrame: cafe sales
+2026-07-18 19:32:10 | INFO | BI |   Converted column 'TransactionId' to string
+2026-07-18 19:32:10 | INFO | BI |   Converted column 'Item' to string
+2026-07-18 19:32:11 | INFO | BI |   Converted column 'Quantity' to numeric
+2026-07-18 19:32:11 | INFO | BI |   Converted column 'PricePerUnit' to numeric
+2026-07-18 19:32:11 | INFO | BI |   Converted column 'TotalSpent' to numeric
+2026-07-18 19:32:11 | INFO | BI |   Converted column 'PaymentMethod' to string
+2026-07-18 19:32:11 | INFO | BI |   Converted column 'Location' to string
+2026-07-18 19:32:11 | INFO | BI |   Converted column 'TransactionDate' to datetime
+2026-07-18 19:32:11 | INFO | BI | Data types for DataFrame: cafe sales
+2026-07-18 19:32:11 | INFO | BI |   Column 'TransactionId' has dtype: str
+2026-07-18 19:32:11 | INFO | BI |   Column 'Item' has dtype: str
+2026-07-18 19:32:11 | INFO | BI |   Column 'Quantity' has dtype: Int64
+2026-07-18 19:32:11 | INFO | BI |   Column 'PricePerUnit' has dtype: Float64
+2026-07-18 19:32:11 | INFO | BI |   Column 'TotalSpent' has dtype: Float64
+2026-07-18 19:32:11 | INFO | BI |   Column 'PaymentMethod' has dtype: str
+2026-07-18 19:32:11 | INFO | BI |   Column 'Location' has dtype: str
+2026-07-18 19:32:11 | INFO | BI |   Column 'TransactionDate' has dtype: datetime64[us]
+2026-07-18 19:32:11 | INFO | BI |   Filling 333 missing value(s) in column 'Item' with mode: juice
+2026-07-18 19:32:11 | INFO | BI |   Filling 2579 missing value(s) in column 'PaymentMethod' with mode: digital wallet
+2026-07-18 19:32:11 | INFO | BI |   Filling 3265 missing value(s) in column 'Location' with mode: takeaway
+2026-07-18 19:32:11 | INFO | BI |   Removed rows with missing values, remaining rows: 9540
+2026-07-18 19:32:11 | INFO | BI | Task 6. CHECK QUALITY AFTER PREPARATION........
+2026-07-18 19:32:11 | INFO | BI | Quality check: cafe sales prepared
+2026-07-18 19:32:11 | INFO | BI | Checking for missing values in cafe sales prepared
+2026-07-18 19:32:11 | INFO | BI |   Total missing values: 0
+2026-07-18 19:32:11 | INFO | BI | Checking for words like 'unknown' or 'error' or 'other' or 'undefined'in cafe sales prepared
+2026-07-18 19:32:11 | INFO | BI | Checking for duplicate rows in cafe sales prepared
+2026-07-18 19:32:12 | INFO | BI |   Duplicate rows: 0
+2026-07-18 19:32:12 | INFO | BI | Outlier check: cafe sales prepared
+2026-07-18 19:32:12 | INFO | BI |   Column 'Quantity' has 1 outlier(s)
+2026-07-18 19:32:12 | DEBUG | BI |   Outliers in column 'Quantity':
+      Quantity  PricePerUnit  TotalSpent
+3779         8           3.0        25.0
+2026-07-18 19:32:12 | INFO | BI |   Column 'PricePerUnit' has 0 outlier(s)
+2026-07-18 19:32:12 | INFO | BI |   Column 'TotalSpent' has 260 outlier(s)
+2026-07-18 19:32:12 | DEBUG | BI |   Outliers in column 'TotalSpent':
+      Quantity  PricePerUnit  TotalSpent
+10           5           5.0        25.0
+51           5           5.0        25.0
+52           5           5.0        25.0
+96           5           5.0        25.0
+100          5           5.0        25.0
+...        ...           ...         ...
+9791         5           5.0        25.0
+9805         5           5.0        25.0
+9879         5           5.0        25.0
+9908         5           5.0        25.0
+9971         5           5.0        25.0
+
+[260 rows x 3 columns]
+2026-07-18 19:32:12 | INFO | BI | Task 7. SUMMARIZE AFTER PREPARATION........
+2026-07-18 19:32:12 | INFO | BI | Numeric summary: cafe sales prepared
+2026-07-18 19:32:12 | INFO | BI | 
+       Quantity  PricePerUnit  TotalSpent
+count    9540.0        9540.0      9540.0
+mean       3.02          2.95        8.92
+std        1.42          1.28         6.0
+min         1.0           1.0         1.0
+25%         2.0           2.0         4.0
+50%         3.0           3.0         8.0
+75%         4.0           4.0        12.0
+max         8.0           5.0        25.0
+2026-07-18 19:32:12 | INFO | BI | Task 8. SAVE PREPARED DATASETS........
+2026-07-18 19:32:12 | INFO | BI | Saved cafe sales
+2026-07-18 19:32:12 | INFO | BI |   Rows: 9540
+2026-07-18 19:32:12 | INFO | BI |   Path: data\prepared\dirty_cafe_sales_data_prepared.csv
+2026-07-18 19:32:12 | INFO | BI | Workflow complete
+2026-07-18 19:32:12 | INFO | BI | ========================
+2026-07-18 19:32:12 | INFO | BI | Executed successfully!
+2026-07-18 19:32:12 | INFO | BI | ========================
+2026-07-18 19:34:18 | INFO | BI | === RUN START ===
+2026-07-18 19:34:18 | INFO | BI | project=BI
+2026-07-18 19:34:18 | INFO | BI | repo_dir=bintel-03-cleaning
+2026-07-18 19:34:18 | INFO | BI | python=3.14.6
+2026-07-18 19:34:18 | INFO | BI | os=Windows 11
+2026-07-18 19:34:18 | INFO | BI | shell=powershell
+2026-07-18 19:34:18 | INFO | BI | cwd=.
+2026-07-18 19:34:18 | INFO | BI | github_actions=False
+2026-07-18 19:34:18 | INFO | BI | ========================
+2026-07-18 19:34:18 | INFO | BI | START main()
+2026-07-18 19:34:18 | INFO | BI | ========================
+2026-07-18 19:34:18 | INFO | BI | Raw data:      = data\raw
+2026-07-18 19:34:18 | INFO | BI | Prepared data: = data\prepared
+2026-07-18 19:34:18 | INFO | BI | Task 1. LOAD. Call a function to load each dataset......
+2026-07-18 19:34:18 | INFO | BI | Loading cafe sales from data\raw\dirty_cafe_sales.csv
+2026-07-18 19:34:18 | INFO | BI | Loaded: 10000 rows, 8 columns
+2026-07-18 19:34:18 | INFO | BI | Task 2. INSPECT. Call a function to inspect each dataset...
+2026-07-18 19:34:18 | INFO | BI | Inspecting cafe sales
+2026-07-18 19:34:18 | INFO | BI |   Columns: ['Transaction ID', 'Item', 'Quantity', 'Price Per Unit', 'Total Spent', 'Payment Method', 'Location', 'Transaction Date']
+2026-07-18 19:34:18 | INFO | BI |   Shape:   10000 rows x 8 columns
+2026-07-18 19:34:18 | DEBUG | BI | 
+  Transaction ID    Item Quantity Price Per Unit Total Spent  Payment Method  Location Transaction Date
+0    TXN_1961373  Coffee        2            2.0         4.0     Credit Card  Takeaway       2023-09-08
+1    TXN_4977031    Cake        4            3.0        12.0            Cash  In-store       2023-05-16
+2    TXN_4271903  Cookie        4            1.0       ERROR     Credit Card  In-store       2023-07-19
+3    TXN_7034554   Salad        2            5.0        10.0         UNKNOWN   UNKNOWN       2023-04-27
+4    TXN_3160411  Coffee        2            2.0         4.0  Digital Wallet  In-store       2023-06-11
+
+2026-07-18 19:34:18 | INFO | BI | Task 3. CHECK QUALITY BEFORE........
+2026-07-18 19:34:18 | INFO | BI | Quality check: cafe sales
+2026-07-18 19:34:18 | INFO | BI | Checking for missing values in cafe sales
+2026-07-18 19:34:18 | INFO | BI |   Total missing values: 6826
+2026-07-18 19:34:18 | WARNING | BI |   Missing by column:
+Item                 333
+Quantity             138
+Price Per Unit       179
+Total Spent          173
+Payment Method      2579
+Location            3265
+Transaction Date     159
+dtype: int64
+2026-07-18 19:34:18 | INFO | BI | Checking for words like 'unknown' or 'error' or 'other' or 'undefined'in cafe sales
+2026-07-18 19:34:18 | DEBUG | BI |   Column 'Transaction ID' has no occurrences of 'unknown'
+2026-07-18 19:34:18 | DEBUG | BI |   Column 'Transaction ID' has no occurrences of 'error'
+2026-07-18 19:34:18 | DEBUG | BI |   Column 'Transaction ID' has no occurrences of 'other'
+2026-07-18 19:34:18 | DEBUG | BI |   Column 'Transaction ID' has no occurrences of 'undefined'
+2026-07-18 19:34:18 | WARNING | BI |   Column 'Item' has 344 occurrences of 'unknown'
+2026-07-18 19:34:18 | WARNING | BI |   Column 'Item' has 292 occurrences of 'error'
+2026-07-18 19:34:18 | DEBUG | BI |   Column 'Item' has no occurrences of 'other'
+2026-07-18 19:34:18 | DEBUG | BI |   Column 'Item' has no occurrences of 'undefined'
+2026-07-18 19:34:18 | WARNING | BI |   Column 'Quantity' has 171 occurrences of 'unknown'
+2026-07-18 19:34:18 | WARNING | BI |   Column 'Quantity' has 170 occurrences of 'error'
+2026-07-18 19:34:18 | DEBUG | BI |   Column 'Quantity' has no occurrences of 'other'
+2026-07-18 19:34:18 | DEBUG | BI |   Column 'Quantity' has no occurrences of 'undefined'
+2026-07-18 19:34:18 | WARNING | BI |   Column 'Price Per Unit' has 164 occurrences of 'unknown'
+2026-07-18 19:34:18 | WARNING | BI |   Column 'Price Per Unit' has 190 occurrences of 'error'
+2026-07-18 19:34:18 | DEBUG | BI |   Column 'Price Per Unit' has no occurrences of 'other'
+2026-07-18 19:34:18 | DEBUG | BI |   Column 'Price Per Unit' has no occurrences of 'undefined'
+2026-07-18 19:34:18 | WARNING | BI |   Column 'Total Spent' has 165 occurrences of 'unknown'
+2026-07-18 19:34:18 | WARNING | BI |   Column 'Total Spent' has 164 occurrences of 'error'
+2026-07-18 19:34:18 | DEBUG | BI |   Column 'Total Spent' has no occurrences of 'other'
+2026-07-18 19:34:18 | DEBUG | BI |   Column 'Total Spent' has no occurrences of 'undefined'
+2026-07-18 19:34:18 | WARNING | BI |   Column 'Payment Method' has 293 occurrences of 'unknown'
+2026-07-18 19:34:18 | WARNING | BI |   Column 'Payment Method' has 306 occurrences of 'error'
+2026-07-18 19:34:18 | DEBUG | BI |   Column 'Payment Method' has no occurrences of 'other'
+2026-07-18 19:34:18 | DEBUG | BI |   Column 'Payment Method' has no occurrences of 'undefined'
+2026-07-18 19:34:18 | WARNING | BI |   Column 'Location' has 338 occurrences of 'unknown'
+2026-07-18 19:34:18 | WARNING | BI |   Column 'Location' has 358 occurrences of 'error'
+2026-07-18 19:34:18 | DEBUG | BI |   Column 'Location' has no occurrences of 'other'
+2026-07-18 19:34:18 | DEBUG | BI |   Column 'Location' has no occurrences of 'undefined'
+2026-07-18 19:34:18 | WARNING | BI |   Column 'Transaction Date' has 159 occurrences of 'unknown'
+2026-07-18 19:34:18 | WARNING | BI |   Column 'Transaction Date' has 142 occurrences of 'error'
+2026-07-18 19:34:18 | DEBUG | BI |   Column 'Transaction Date' has no occurrences of 'other'
+2026-07-18 19:34:18 | DEBUG | BI |   Column 'Transaction Date' has no occurrences of 'undefined'
+2026-07-18 19:34:18 | INFO | BI | Checking for duplicate rows in cafe sales
+2026-07-18 19:34:18 | INFO | BI |   Duplicate rows: 0
+2026-07-18 19:34:18 | INFO | BI | Outlier check: cafe sales
+2026-07-18 19:34:18 | INFO | BI |   No numeric columns in cafe sales
+2026-07-18 19:34:18 | INFO | BI | Task 4. SUMMARIZE BEFORE.......... 
+2026-07-18 19:34:18 | INFO | BI |   No numeric columns in cafe sales
+2026-07-18 19:34:18 | INFO | BI | Task 5. PREPARE DATASETS.........
+2026-07-18 19:34:18 | INFO | BI | Prepping DataFrame: cafe sales
+2026-07-18 19:34:18 | INFO | BI | Formatting column names for DataFrame: cafe sales
+2026-07-18 19:34:18 | INFO | BI |   Formatted column names: ['TransactionId', 'Item', 'Quantity', 'PricePerUnit', 'TotalSpent', 'PaymentMethod', 'Location', 'TransactionDate']
+2026-07-18 19:34:18 | INFO | BI | Removing duplicate rows for DataFrame: cafe sales
+2026-07-18 19:34:19 | INFO | BI |   No duplicate rows found for DataFrame: cafe sales
+2026-07-18 19:34:19 | INFO | BI | Converted invalid words to blank values for DataFrame: cafe sales
+2026-07-18 19:34:19 | INFO | BI | Converting columns to appropriate data types for DataFrame: cafe sales
+2026-07-18 19:34:19 | INFO | BI |   Converted column 'TransactionId' to string
+2026-07-18 19:34:19 | INFO | BI |   Converted column 'Item' to string
+2026-07-18 19:34:19 | INFO | BI |   Converted column 'Quantity' to numeric
+2026-07-18 19:34:19 | INFO | BI |   Converted column 'PricePerUnit' to numeric
+2026-07-18 19:34:19 | INFO | BI |   Converted column 'TotalSpent' to numeric
+2026-07-18 19:34:19 | INFO | BI |   Converted column 'PaymentMethod' to string
+2026-07-18 19:34:19 | INFO | BI |   Converted column 'Location' to string
+2026-07-18 19:34:19 | INFO | BI |   Converted column 'TransactionDate' to datetime
+2026-07-18 19:34:19 | INFO | BI | Data types for DataFrame: cafe sales
+2026-07-18 19:34:19 | INFO | BI |   Column 'TransactionId' has dtype: str
+2026-07-18 19:34:19 | INFO | BI |   Column 'Item' has dtype: str
+2026-07-18 19:34:19 | INFO | BI |   Column 'Quantity' has dtype: Int64
+2026-07-18 19:34:19 | INFO | BI |   Column 'PricePerUnit' has dtype: Float64
+2026-07-18 19:34:19 | INFO | BI |   Column 'TotalSpent' has dtype: Float64
+2026-07-18 19:34:19 | INFO | BI |   Column 'PaymentMethod' has dtype: str
+2026-07-18 19:34:19 | INFO | BI |   Column 'Location' has dtype: str
+2026-07-18 19:34:19 | INFO | BI |   Column 'TransactionDate' has dtype: datetime64[us]
+2026-07-18 19:34:19 | INFO | BI |   Filling 333 missing value(s) in column 'Item' with mode: juice
+2026-07-18 19:34:19 | INFO | BI |   Filling 2579 missing value(s) in column 'PaymentMethod' with mode: digital wallet
+2026-07-18 19:34:19 | INFO | BI |   Filling 3265 missing value(s) in column 'Location' with mode: takeaway
+2026-07-18 19:34:19 | INFO | BI |   Removed rows with missing values, remaining rows: 9540
+2026-07-18 19:34:19 | INFO | BI | Task 6. CHECK QUALITY AFTER PREPARATION........
+2026-07-18 19:34:19 | INFO | BI | Quality check: cafe sales prepared
+2026-07-18 19:34:19 | INFO | BI | Checking for missing values in cafe sales prepared
+2026-07-18 19:34:19 | INFO | BI |   Total missing values: 0
+2026-07-18 19:34:19 | INFO | BI | Checking for words like 'unknown' or 'error' or 'other' or 'undefined'in cafe sales prepared
+2026-07-18 19:34:19 | DEBUG | BI |   Column 'TransactionId' has no occurrences of 'unknown'
+2026-07-18 19:34:19 | DEBUG | BI |   Column 'TransactionId' has no occurrences of 'error'
+2026-07-18 19:34:19 | DEBUG | BI |   Column 'TransactionId' has no occurrences of 'other'
+2026-07-18 19:34:19 | DEBUG | BI |   Column 'TransactionId' has no occurrences of 'undefined'
+2026-07-18 19:34:19 | DEBUG | BI |   Column 'Item' has no occurrences of 'unknown'
+2026-07-18 19:34:19 | DEBUG | BI |   Column 'Item' has no occurrences of 'error'
+2026-07-18 19:34:19 | DEBUG | BI |   Column 'Item' has no occurrences of 'other'
+2026-07-18 19:34:19 | DEBUG | BI |   Column 'Item' has no occurrences of 'undefined'
+2026-07-18 19:34:19 | DEBUG | BI |   Column 'Quantity' has no occurrences of 'unknown'
+2026-07-18 19:34:19 | DEBUG | BI |   Column 'Quantity' has no occurrences of 'error'
+2026-07-18 19:34:19 | DEBUG | BI |   Column 'Quantity' has no occurrences of 'other'
+2026-07-18 19:34:19 | DEBUG | BI |   Column 'Quantity' has no occurrences of 'undefined'
+2026-07-18 19:34:19 | DEBUG | BI |   Column 'PricePerUnit' has no occurrences of 'unknown'
+2026-07-18 19:34:19 | DEBUG | BI |   Column 'PricePerUnit' has no occurrences of 'error'
+2026-07-18 19:34:19 | DEBUG | BI |   Column 'PricePerUnit' has no occurrences of 'other'
+2026-07-18 19:34:19 | DEBUG | BI |   Column 'PricePerUnit' has no occurrences of 'undefined'
+2026-07-18 19:34:19 | DEBUG | BI |   Column 'TotalSpent' has no occurrences of 'unknown'
+2026-07-18 19:34:19 | DEBUG | BI |   Column 'TotalSpent' has no occurrences of 'error'
+2026-07-18 19:34:19 | DEBUG | BI |   Column 'TotalSpent' has no occurrences of 'other'
+2026-07-18 19:34:19 | DEBUG | BI |   Column 'TotalSpent' has no occurrences of 'undefined'
+2026-07-18 19:34:19 | DEBUG | BI |   Column 'PaymentMethod' has no occurrences of 'unknown'
+2026-07-18 19:34:19 | DEBUG | BI |   Column 'PaymentMethod' has no occurrences of 'error'
+2026-07-18 19:34:19 | DEBUG | BI |   Column 'PaymentMethod' has no occurrences of 'other'
+2026-07-18 19:34:19 | DEBUG | BI |   Column 'PaymentMethod' has no occurrences of 'undefined'
+2026-07-18 19:34:19 | DEBUG | BI |   Column 'Location' has no occurrences of 'unknown'
+2026-07-18 19:34:19 | DEBUG | BI |   Column 'Location' has no occurrences of 'error'
+2026-07-18 19:34:20 | DEBUG | BI |   Column 'Location' has no occurrences of 'other'
+2026-07-18 19:34:20 | DEBUG | BI |   Column 'Location' has no occurrences of 'undefined'
+2026-07-18 19:34:20 | DEBUG | BI |   Column 'TransactionDate' has no occurrences of 'unknown'
+2026-07-18 19:34:20 | DEBUG | BI |   Column 'TransactionDate' has no occurrences of 'error'
+2026-07-18 19:34:20 | DEBUG | BI |   Column 'TransactionDate' has no occurrences of 'other'
+2026-07-18 19:34:20 | DEBUG | BI |   Column 'TransactionDate' has no occurrences of 'undefined'
+2026-07-18 19:34:20 | INFO | BI | Checking for duplicate rows in cafe sales prepared
+2026-07-18 19:34:20 | INFO | BI |   Duplicate rows: 0
+2026-07-18 19:34:20 | INFO | BI | Outlier check: cafe sales prepared
+2026-07-18 19:34:20 | INFO | BI |   Column 'Quantity' has 1 outlier(s)
+2026-07-18 19:34:20 | DEBUG | BI |   Outliers in column 'Quantity':
+      Quantity  PricePerUnit  TotalSpent
+3779         8           3.0        25.0
+2026-07-18 19:34:20 | INFO | BI |   Column 'PricePerUnit' has 0 outlier(s)
+2026-07-18 19:34:20 | INFO | BI |   Column 'TotalSpent' has 260 outlier(s)
+2026-07-18 19:34:20 | DEBUG | BI |   Outliers in column 'TotalSpent':
+      Quantity  PricePerUnit  TotalSpent
+10           5           5.0        25.0
+51           5           5.0        25.0
+52           5           5.0        25.0
+96           5           5.0        25.0
+100          5           5.0        25.0
+...        ...           ...         ...
+9791         5           5.0        25.0
+9805         5           5.0        25.0
+9879         5           5.0        25.0
+9908         5           5.0        25.0
+9971         5           5.0        25.0
+
+[260 rows x 3 columns]
+2026-07-18 19:34:20 | INFO | BI | Task 7. SUMMARIZE AFTER PREPARATION........
+2026-07-18 19:34:20 | INFO | BI | Numeric summary: cafe sales prepared
+2026-07-18 19:34:20 | INFO | BI | 
+       Quantity  PricePerUnit  TotalSpent
+count    9540.0        9540.0      9540.0
+mean       3.02          2.95        8.92
+std        1.42          1.28         6.0
+min         1.0           1.0         1.0
+25%         2.0           2.0         4.0
+50%         3.0           3.0         8.0
+75%         4.0           4.0        12.0
+max         8.0           5.0        25.0
+2026-07-18 19:34:20 | INFO | BI | Task 8. SAVE PREPARED DATASETS........
+2026-07-18 19:34:20 | INFO | BI | Saved cafe sales
+2026-07-18 19:34:20 | INFO | BI |   Rows: 9540
+2026-07-18 19:34:20 | INFO | BI |   Path: data\prepared\dirty_cafe_sales_data_prepared.csv
+2026-07-18 19:34:20 | INFO | BI | Workflow complete
+2026-07-18 19:34:20 | INFO | BI | ========================
+2026-07-18 19:34:20 | INFO | BI | Executed successfully!
+2026-07-18 19:34:20 | INFO | BI | ========================
